@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>StoneDocuments - Command 1</Text>
+    <Description>Some description</Description>
+    <Assembly>StoneDocuments\StoneDocuments.dll</Assembly>
+    <FullClassName>StoneDocuments.Command1</FullClassName>
+    <ClientId>afc4f2d6-68a0-4932-92f5-e4673cc95416</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Text>StoneDocuments - Command 2</Text>
+    <Description>Some description</Description>
+    <Assembly>StoneDocuments\StoneDocuments.dll</Assembly>
+    <FullClassName>StoneDocuments.Command2</FullClassName>
+    <ClientId>9190ea11-d5c8-47a2-b620-98db052ac519</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>StoneDocuments</Name>
+    <Assembly>StoneDocuments\StoneDocuments.dll</Assembly>
+    <FullClassName>StoneDocuments.App</FullClassName>
+    <ClientId>33ed6d5d-0ead-40a6-852c-ca37aba38f6e</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+</RevitAddIns>
