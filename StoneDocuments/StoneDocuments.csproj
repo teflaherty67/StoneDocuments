@@ -73,6 +73,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Clear_16.png" />
 	  <None Remove="Resources\Clear_32.png" />
+	  <None Remove="Resources\ScheduleSwap_32.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -80,12 +81,7 @@
 	  <EmbeddedResource Include="Resources\Blue_32.png" />
 	  <EmbeddedResource Include="Resources\Clear_16.png" />
 	  <EmbeddedResource Include="Resources\Clear_32.png" />
-	  <EmbeddedResource Include="Resources\Green_16.png" />
-	  <EmbeddedResource Include="Resources\Green_32.png" />
-	  <EmbeddedResource Include="Resources\Red_16.png" />
-	  <EmbeddedResource Include="Resources\Red_32.png" />
-	  <EmbeddedResource Include="Resources\Yellow_16.png" />
-	  <EmbeddedResource Include="Resources\Yellow_32.png" />
+	  <EmbeddedResource Include="Resources\ScheduleSwap_32.jpg" />
 	</ItemGroup>
 	
 	<ItemGroup>
