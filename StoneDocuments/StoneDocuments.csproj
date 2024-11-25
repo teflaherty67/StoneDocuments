@@ -71,17 +71,25 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Check_16.png" />
+	  <None Remove="Resources\Check_32.png" />
 	  <None Remove="Resources\Clear_16.png" />
 	  <None Remove="Resources\Clear_32.png" />
+	  <None Remove="Resources\ScheduleSwap_16.jpg" />
 	  <None Remove="Resources\ScheduleSwap_32.jpg" />
+	  <None Remove="Resources\SheetMaker_16.png" />
+	  <None Remove="Resources\SheetMaker_32.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="Resources\Blue_16.png" />
-	  <EmbeddedResource Include="Resources\Blue_32.png" />
+	  <EmbeddedResource Include="Resources\Check_16.png" />
+	  <EmbeddedResource Include="Resources\Check_32.png" />
 	  <EmbeddedResource Include="Resources\Clear_16.png" />
 	  <EmbeddedResource Include="Resources\Clear_32.png" />
+	  <EmbeddedResource Include="Resources\ScheduleSwap_16.jpg" />
 	  <EmbeddedResource Include="Resources\ScheduleSwap_32.jpg" />
+	  <EmbeddedResource Include="Resources\SheetMaker_16.png" />
+	  <EmbeddedResource Include="Resources\SheetMaker_32.png" />
 	</ItemGroup>
 	
 	<ItemGroup>

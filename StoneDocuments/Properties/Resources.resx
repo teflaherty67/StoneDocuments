@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Blue_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Blue_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Check_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Check_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Blue_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Blue_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Check_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Check_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Clear_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Clear_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -135,5 +135,11 @@
   </data>
   <data name="ScheduleSwap_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ScheduleSwap_32.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SheetMaker_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SheetMaker_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SheetMaker_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SheetMaker_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
