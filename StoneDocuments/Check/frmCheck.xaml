@@ -1,0 +1,22 @@
+﻿<Window x:Class="StoneDocuments.frmCheck"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StoneDocuments"
+        mc:Ignorable="d"
+        Title="Check Parts" d:DesignHeight="175" d:DesignWidth="400" MinWidth="360" MinHeight="130" >
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="tbkCount" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="ElemList.Count.ToString() + &quot;elements selected&quot;"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Label Content="Accept overrides?"/>
+            <Button x:Name="btnOK" Width="90" Height="25" Margin="20,0,0,0" Content="OK" Click="btnOK_Click"/>
+            <Button x:Name="btnCancel" Width="90" Height="25" Margin="10,0,0,0" Content="Cancel" Click="btnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

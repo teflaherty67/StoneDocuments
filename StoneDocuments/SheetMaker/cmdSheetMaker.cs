@@ -53,8 +53,8 @@ namespace StoneDocuments
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.Blue_32,
-                Properties.Resources.Blue_16,
+                Properties.Resources.SheetMaker_32,
+                Properties.Resources.SheetMaker_16,
                 "This is a tooltip for Button 2");
 
             return myButtonData.Data;
