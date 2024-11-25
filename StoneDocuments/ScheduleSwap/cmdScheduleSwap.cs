@@ -1,4 +1,6 @@
-﻿namespace StoneDocuments
+﻿using StoneDocuments.Common;
+
+namespace StoneDocuments
 {
     [Transaction(TransactionMode.Manual)]
     public class cmdScheduleSwap : IExternalCommand
@@ -8,9 +10,34 @@
             // Revit application and document variables
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
-            Document doc = uidoc.Document;
+            Document curDoc = uidoc.Document;
 
-            // Your code goes here
+            // check current view - make sure it's a sheet
+
+            if (!(curDoc.ActiveView is ViewSheet))
+            {
+                TaskDialog.Show("Error", "Please make the active view a sheet");
+                return Result.Failed;
+            }
+
+            curSheet = curDoc.ActiveView as ViewSheet;
+
+            if (Utils.SheetHasSchedule(curDoc, curSheet) == false)
+            {
+                TaskDialog.Show("Error", "The current sheet does not have a schedule. Please select another sheet.");
+                return Result.Failed;
+            }
+
+            // open form
+            frmScheduleSwap curForm = new frmScheduleSwap(uiapp)
+            {
+                Width = 450,
+                Height = 150,
+                WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
+                Topmost = true,
+            };
+
+            curForm.ShowDialog();
 
             return Result.Succeeded;
         }

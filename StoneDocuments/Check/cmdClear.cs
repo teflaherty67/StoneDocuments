@@ -11,32 +11,32 @@ namespace StoneDocuments
             // Revit application and document variables
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
-            Document doc = uidoc.Document;
+            Document curDoc = uidoc.Document;
 
             string userName = uiapp.Application.Username;
 
             // set current view to 3D view
             View curView;
 
-            if (doc.IsWorkshared == true)
-                curView = Utils.GetViewByName(doc, "{3D - " + userName + "}");
+            if (curDoc.IsWorkshared == true)
+                curView = Utils.GetViewByName(curDoc, "{3D - " + userName + "}");
             else
-                curView = Utils.GetViewByName(doc, "{3D}");
+                curView = Utils.GetViewByName(curDoc, "{3D}");
 
             // get all elements in view
-            List<Element> viewElements = Utils.GetElementsFromView(doc, curView);
+            List<Element> viewElements = Utils.GetElementsFromView(curDoc, curView);
 
             // set override settings
             OverrideGraphicSettings colSet = new OverrideGraphicSettings();
 
             // update element overrides in view
-            using (Transaction t = new Transaction(doc))
+            using (Transaction t = new Transaction(curDoc))
             {
                 t.Start("Reset elements");
 
                 foreach (Element curElem in viewElements)
                 {
-                    doc.ActiveView.SetElementOverrides(curElem.Id, colSet);
+                    curDoc.ActiveView.SetElementOverrides(curElem.Id, colSet);
                 }
 
                 t.Commit();

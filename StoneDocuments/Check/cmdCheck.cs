@@ -11,13 +11,13 @@ namespace StoneDocuments
             // Revit application and document variables
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
-            Document doc = uidoc.Document;
+            Document curDoc = uidoc.Document;
 
             // check current view - make sure it's a sheet
             ViewSheet curSheet;
-            if (doc.ActiveView is ViewSheet)
+            if (curDoc.ActiveView is ViewSheet)
             {
-                curSheet = doc.ActiveView as ViewSheet;
+                curSheet = curDoc.ActiveView as ViewSheet;
             }
             else
             {
@@ -26,7 +26,7 @@ namespace StoneDocuments
             }
 
             // get schedule from sheet
-            List<ViewSchedule> schedList = Utils.GetAllSchedulesOnSheet(doc, curSheet);
+            List<ViewSchedule> schedList = Utils.GetAllSchedulesOnSheet(curDoc, curSheet);
 
             // check if sheet has schedule
             if (schedList.Count == 0)
@@ -36,10 +36,10 @@ namespace StoneDocuments
             }
 
             // get elements from schedule
-            List<Element> elemList = Utils.GetElementsFromSchedule(doc, schedList[0]);
+            List<Element> elemList = Utils.GetElementsFromSchedule(curDoc, schedList[0]);
             List<ElementId> elemIdList = new List<ElementId>();
 
-            if (Utils.DoesElementListContainAssemblies(doc, elemList) == true)
+            if (Utils.DoesElementListContainAssemblies(curDoc, elemList) == true)
             {
                 // loop through each assemebly instance in the list
                 foreach (AssemblyInstance curAssembly in elemList)
@@ -51,7 +51,7 @@ namespace StoneDocuments
             }
             else
             {
-                elemIdList = Utils.GetElementIdsFromList(doc, elemList);
+                elemIdList = Utils.GetElementIdsFromList(curDoc, elemList);
             }
 
             string userName = uiapp.Application.Username;
@@ -59,10 +59,10 @@ namespace StoneDocuments
             // set current view to 3D view
             View curView;
 
-            if (doc.IsWorkshared == true)
-                curView = Utils.GetViewByName(doc, "{3D - " + userName + "}");
+            if (curDoc.IsWorkshared == true)
+                curView = Utils.GetViewByName(curDoc, "{3D - " + userName + "}");
             else
-                curView = Utils.GetViewByName(doc, "{3D}");
+                curView = Utils.GetViewByName(curDoc, "{3D}");
 
             if (curView == null)
             {
