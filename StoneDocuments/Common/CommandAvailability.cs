@@ -1,4 +1,4 @@
-﻿namespace StoneDocuments.Common
+﻿namespace StoneDocuments
 {
     internal class CommandAvailability : IExternalCommandAvailability
     {
