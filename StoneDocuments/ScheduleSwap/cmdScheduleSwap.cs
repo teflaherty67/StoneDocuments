@@ -5,6 +5,7 @@ namespace StoneDocuments
     [Transaction(TransactionMode.Manual)]
     public class cmdScheduleSwap : IExternalCommand
     {
+        public ViewSheet curSheet;
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             // Revit application and document variables

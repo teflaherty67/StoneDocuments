@@ -13,6 +13,7 @@ global using Autodesk.Revit.ApplicationServices;
 global using Autodesk.Revit.UI.Selection;
 global using Color = Autodesk.Revit.DB.Color;
 global using TaskDialog = Autodesk.Revit.UI.TaskDialog;
+global using Icon = Autodesk.Revit.UI.TaskDialogIcon;
 global using View = Autodesk.Revit.DB.View;
 global using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
