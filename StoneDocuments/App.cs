@@ -30,10 +30,12 @@ namespace StoneDocuments
             PushButtonData btnData2_2 = cmdSheetMaker.GetButtonData();
 
             // create buttons for panel 01
-            PushButton myButton1 = panel01.AddItem(btnData1_1) as PushButton;
-            PushButton myButton2 = panel02.AddItem(btnData1_2) as PushButton;
+            PushButton myButton1_1 = panel01.AddItem(btnData1_1) as PushButton;
+            PushButton myButton1_2 = panel01.AddItem(btnData1_2) as PushButton;
 
             // create buttons for panel 02
+            PushButton myButton2_1 = panel02.AddItem(btnData2_1) as PushButton;
+            PushButton myButton2_2 = panel02.AddItem(btnData2_2) as PushButton;
 
             //NOTE:
             //    To create a new tool, copy lines 35 and 39 and rename the variables to "btnData3" and "myButton3".

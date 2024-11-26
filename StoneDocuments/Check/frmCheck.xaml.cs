@@ -22,12 +22,12 @@ namespace StoneDocuments
     /// </summary>
     public partial class frmCheck : Window
     {
-        private RequestHandler m_Handler;
-        private CancelHandler c_Handler;
+        private cmdCheck.RequestHandler m_Handler;
+        private cmdCheck.CancelHandler c_Handler;
         private ExternalEvent m_ExternalEvent;
         private ExternalEvent c_ExternalEvent;
 
-        public frmCheck(ExternalEvent exEvent, RequestHandler rHandler, CancelHandler cHandler, ExternalEvent cEvent, int count)
+        public frmCheck(ExternalEvent exEvent, cmdCheck.RequestHandler rHandler, cmdCheck.CancelHandler cHandler, ExternalEvent cEvent, int count)
         {
             InitializeComponent();
 

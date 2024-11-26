@@ -173,8 +173,8 @@ namespace StoneDocuments
         internal static PushButtonData GetButtonData()
         {
             // use this method to define the properties for this command in the Revit ribbon
-            string buttonInternalName = "btnCommand1";
-            string buttonTitle = "Button 1";
+            string buttonInternalName = "btnCommand1_1";
+            string buttonTitle = "Check\rParts";
 
             clsButtonData myButtonData = new clsButtonData(
                 buttonInternalName,
@@ -182,7 +182,7 @@ namespace StoneDocuments
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.Check_32,
                 Properties.Resources.Check_16,
-                "This is a tooltip for Button 1");
+                "Check parts by schedule and override surface foreground color.");
 
             return myButtonData.Data;
         }

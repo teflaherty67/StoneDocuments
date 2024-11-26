@@ -46,8 +46,8 @@ namespace StoneDocuments
         internal static PushButtonData GetButtonData()
         {
             // use this method to define the properties for this command in the Revit ribbon
-            string buttonInternalName = "btnCommand2";
-            string buttonTitle = "Button 2";
+            string buttonInternalName = "btnCommand2_2";
+            string buttonTitle = "Sheet\rMaker";
 
             clsButtonData myButtonData = new clsButtonData(
                 buttonInternalName,
@@ -55,7 +55,7 @@ namespace StoneDocuments
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.SheetMaker_32,
                 Properties.Resources.SheetMaker_16,
-                "This is a tooltip for Button 2");
+                "Batch creates sheets based on user input");
 
             return myButtonData.Data;
         }
