@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:StoneDocuments_Insataller"
+"ProjectName" = "8:StoneDocuments_Installer"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -17,6 +17,18 @@
         {
         "MsmKey" = "8:_109BD7E104014C3F9256CBC73D21CFC6"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7EEAF4EB288E4A55A83D422FDB552503"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7EEAF4EB288E4A55A83D422FDB552503"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -37,6 +49,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -53,6 +73,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -70,6 +106,14 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_5EC6B32AA84B4923A0DB7DC5DAD80BDD"
+                {
+                "Name" = "8:.NET Framework"
+                "Message" = "8:[VSDNETMSG]"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.7.2"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=863262"
+                }
                 "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_CC0B057074C04AB48D3D4A3CB494FB57"
                 {
                 "Name" = "8:.NET Core"
@@ -90,6 +134,37 @@
             "TargetName" = "8:StoneDocuments.addin"
             "Tag" = "8:"
             "Folder" = "8:_CBEE08E9C7304CE78F6D88497127DE7F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7EEAF4EB288E4A55A83D422FDB552503"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:StoneDocuments, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64"
+                "ScatterAssemblies"
+                {
+                    "_7EEAF4EB288E4A55A83D422FDB552503"
+                    {
+                    "Name" = "8:StoneDocuments.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\StoneDocuments\\bin\\Release\\2025\\StoneDocuments.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BD127BB5E73642C1BBA1F2E1C075651D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -155,6 +230,17 @@
                                             "Property" = "8:_169FBE2D22DD4A7FB1A56DDF21393802"
                                                 "Folders"
                                                 {
+                                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_BD127BB5E73642C1BBA1F2E1C075651D"
+                                                    {
+                                                    "Name" = "8:Stone Documents"
+                                                    "AlwaysCreate" = "11:FALSE"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "Property" = "8:_ED83413B9A0F454EA4153501D0ADB70E"
+                                                        "Folders"
+                                                        {
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -193,15 +279,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Stone Documents Tools"
-        "ProductCode" = "8:{E3295CB9-AB1A-4A75-A6B7-19B56311FB5D}"
-        "PackageCode" = "8:{0AA02B2D-0D0C-4377-9BDB-B3D40413ACD0}"
+        "ProductCode" = "8:{CE8550F0-87AB-4AF4-B2F1-B45E7F4DB336}"
+        "PackageCode" = "8:{8BBCDB0A-3651-4394-B7B8-EC3988E6DE02}"
         "UpgradeCode" = "8:{7107FE79-9BBE-4E97-96FB-078AE73D6738}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:25.1.0"
+        "ProductVersion" = "8:25.1.3"
         "Manufacturer" = "8:RBA, Inc"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
