@@ -56,6 +56,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -232,7 +240,7 @@
                                                 {
                                                     "{9EF0B969-E518-4E46-987F-47570745A589}:_BD127BB5E73642C1BBA1F2E1C075651D"
                                                     {
-                                                    "Name" = "8:Stone Documents"
+                                                    "Name" = "8:StoneDocuments"
                                                     "AlwaysCreate" = "11:FALSE"
                                                     "Condition" = "8:"
                                                     "Transitive" = "11:FALSE"
@@ -279,15 +287,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Stone Documents Tools"
-        "ProductCode" = "8:{CE8550F0-87AB-4AF4-B2F1-B45E7F4DB336}"
-        "PackageCode" = "8:{8BBCDB0A-3651-4394-B7B8-EC3988E6DE02}"
+        "ProductCode" = "8:{9B73A8B4-899A-4D4F-A73D-0719F4A6771C}"
+        "PackageCode" = "8:{95AB9257-E8FF-4608-9163-5302F5668D84}"
         "UpgradeCode" = "8:{7107FE79-9BBE-4E97-96FB-078AE73D6738}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:25.1.3"
+        "ProductVersion" = "8:25.1.5"
         "Manufacturer" = "8:RBA, Inc"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
