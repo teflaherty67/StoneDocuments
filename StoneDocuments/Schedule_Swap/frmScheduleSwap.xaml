@@ -5,24 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoneDocuments"
         mc:Ignorable="d"
-        Title="Schedule Swapper" d:DesignHeight="125" d:DesignWidth="400" MinWidth="375" MinHeight="125" >
+        Title="Schedule Swapper" d:DesignHeight="175" d:DesignWidth="400" MinWidth="375" MinHeight="125" >
     <Grid Margin="10">
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <GroupBox Header="Schedule to replace:" BorderThickness="0">
-                <ComboBox x:Name="cmbCurSchedules" DisplayMemberPath="Name" HorizontalAlignment="Right" Width="175"/>
-            </GroupBox>
-            <GroupBox Header="Select new schedule:" BorderThickness="0">
-                <ComboBox x:Name="cmbNewSchedules" DisplayMemberPath="Name" HorizontalAlignment="Left" Width="175"/>
-            </GroupBox>
-        </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Row 0 -->
+        <GroupBox Grid.Row="0" Grid.Column="0" Header="Schedule to replace:" BorderThickness="0">
+            <ComboBox x:Name="cmbCurSchedules" DisplayMemberPath="Name" Width="175"/>
+        </GroupBox>
+        <GroupBox Grid.Row="0" Grid.Column="1" Header="Select new schedule:" BorderThickness="0">
+            <ComboBox x:Name="cmbNewSchedules" DisplayMemberPath="Name" Width="175"/>
+        </GroupBox>
+
+        <!-- Row 1 -->
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Search for schedule:" BorderThickness="0">
+            <ComboBox x:Name="cmbSearchSchedules" 
+                  DisplayMemberPath="Name" 
+                  Width="175"
+                  IsEditable="True"
+                  IsTextSearchEnabled="True"
+                  StaysOpenOnEdit="True"
+                  DropDownOpened="cmbSearchSchedules_DropDownOpened"
+                  SelectionChanged="cmbSearchSchedules_SelectionChanged"/>
+        </GroupBox>
+
+        <!-- Row 3 (buttons) -->
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Width="90" Content="OK" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
             <Button x:Name="btnCancel" Width="90" Content="Cancel" Height="30" Click="btnCancel_Click" Margin="0,0,10,0"/>
+            <Button x:Name="btnHelp" Width="90" Content="Help" Height="30" Click="btnCancel_Click" Margin="0,0,10,0"/>
         </StackPanel>
     </Grid>
 </Window>
