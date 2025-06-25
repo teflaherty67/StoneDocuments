@@ -33,7 +33,7 @@ namespace StoneDocuments
             frmScheduleSwap curForm = new frmScheduleSwap(uiapp)
             {
                 Width = 450,
-                Height = 150,
+                Height = 200,
                 WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
                 Topmost = true,
             };
