@@ -1,4 +1,7 @@
-﻿namespace StoneDocuments.Common
+﻿
+using System.Windows.Forms;
+
+namespace StoneDocuments.Common
 {
     internal static class Utils
     {
@@ -131,6 +134,46 @@
             }
 
             return null;
+        }
+
+        internal static List<string> GetCommandsFromRibbonTab(UIApplication uiapp, string tabName)
+        {
+            List<string> m_cmdList = new List<string>();
+
+            foreach (RibbonPanel curPanel in uiapp.GetRibbonPanels(tabName))
+            {
+                foreach (RibbonItem curItem in curPanel.GetItems())
+                {
+                    if (curItem is PushButton pushButton)
+                    {
+                        m_cmdList.Add(pushButton.ItemText.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " "));
+                    }
+                    else if (curItem is PulldownButton pulldownButton)
+                    {
+                        m_cmdList.Add(pulldownButton.ItemText.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " "));
+                        foreach (RibbonItem pulldownItem in pulldownButton.GetItems())
+                        {
+                            if (pulldownItem is PushButton subButton)
+                            {
+                                m_cmdList.Add(subButton.ItemText.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " "));
+                            }
+                        }
+                    }
+                    else if (curItem is SplitButton splitButton)
+                    {
+                        m_cmdList.Add(splitButton.ItemText.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " "));
+                        foreach (RibbonItem splitButtonItem in splitButton.GetItems())
+                        {
+                            if (splitButtonItem is PushButton subButton)
+                            {
+                                m_cmdList.Add(subButton.ItemText.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " "));
+                            }
+                        }
+                    }
+                }
+            }
+
+            return m_cmdList;
         }
 
         #endregion
@@ -412,6 +455,8 @@
 
             return m_returnList;
         }
+
+        
 
         #endregion
     }

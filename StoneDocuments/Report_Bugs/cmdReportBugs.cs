@@ -12,10 +12,13 @@ namespace StoneDocuments
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document curDoc = uidoc.Document;
 
+            // get command list for form
+            List<string> listCommands = Utils.GetCommandsFromRibbonTab(uiapp, "Stone Documents");
+
             try
             {
                 // Launch the bug report WPF window
-                frmReportBugs curForm = new frmReportBugs();
+                frmReportBugs curForm = new frmReportBugs(listCommands);
                 bool? result = curForm.ShowDialog();
 
                 if (result == true)
