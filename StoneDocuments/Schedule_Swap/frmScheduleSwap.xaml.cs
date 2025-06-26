@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ComboBox = System.Windows.Controls.ComboBox;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
 namespace StoneDocuments
 {
@@ -46,15 +47,16 @@ namespace StoneDocuments
             return cmbNewSchedules.SelectedItem as ViewSchedule;
         }
 
-        private void cmbSearchSchedules_DropDownOpened(object sender, EventArgs e)
+        private void cmbSearchSchedules_KeyUp(object sender, KeyEventArgs e)
         {
-            // Get the ComboBox
             ComboBox comboBox = sender as ComboBox;
-
-            // Get the text that was typed
             string searchText = comboBox.Text;
 
-            // If search text is empty, show all schedules
+            // Don't filter on navigation keys
+            if (e.Key == Key.Up || e.Key == Key.Down || e.Key == Key.Enter || e.Key == Key.Tab)
+                return;
+
+            // Filter schedules based on search text
             if (string.IsNullOrEmpty(searchText))
             {
                 viewModel.viewSchedules.Clear();
@@ -65,9 +67,8 @@ namespace StoneDocuments
             }
             else
             {
-                // Filter schedules based on search text
                 var filteredSchedules = allSchedules
-                    .Where(s => s.Name.ToLower().Contains(searchText.ToLower()))
+                    .Where(s => s.Name.ToLower().StartsWith(searchText.ToLower()))
                     .ToList();
 
                 viewModel.viewSchedules.Clear();
@@ -76,6 +77,9 @@ namespace StoneDocuments
                     viewModel.viewSchedules.Add(schedule);
                 }
             }
+
+            // Keep the dropdown open and show all matches
+            comboBox.IsDropDownOpen = true;
         }
 
         private void cmbSearchSchedules_SelectionChanged(object sender, SelectionChangedEventArgs e)

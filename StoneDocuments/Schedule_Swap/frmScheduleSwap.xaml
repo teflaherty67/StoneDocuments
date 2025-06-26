@@ -28,14 +28,14 @@
 
         <!-- Row 1 -->
         <GroupBox Grid.Row="1" Grid.Column="1" Header="Search for schedule:" BorderThickness="0">
-            <ComboBox x:Name="cmbSearchSchedules" 
-                  DisplayMemberPath="Name" 
-                  Width="175"
-                  IsEditable="True"
-                  IsTextSearchEnabled="True"
-                  StaysOpenOnEdit="True"
-                  DropDownOpened="cmbSearchSchedules_DropDownOpened"
-                  SelectionChanged="cmbSearchSchedules_SelectionChanged"/>
+            <ComboBox x:Name="cmbSearchSchedules"
+                      DisplayMemberPath="Name"
+                      Width="175"
+                      IsEditable="True"
+                      IsTextSearchEnabled="False"
+                      StaysOpenOnEdit="True"
+                      SelectionChanged="cmbSearchSchedules_SelectionChanged"
+                      KeyUp="cmbSearchSchedules_KeyUp"/>
         </GroupBox>
 
         <!-- Row 3 (buttons) -->

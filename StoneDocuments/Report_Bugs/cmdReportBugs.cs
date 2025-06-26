@@ -1,4 +1,6 @@
 ﻿using StoneDocuments.Common;
+using System.Windows.Media.Media3D;
+using System.Windows;
 
 namespace StoneDocuments
 {
@@ -18,7 +20,14 @@ namespace StoneDocuments
             try
             {
                 // Launch the bug report WPF window
-                frmReportBugs curForm = new frmReportBugs(listCommands);
+                frmReportBugs curForm = new frmReportBugs(listCommands)
+                {
+                    Width = 450,
+                    Height = 400,
+                    WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
+                    Topmost = true,
+                };
+
                 bool? result = curForm.ShowDialog();
 
                 if (result == true)
