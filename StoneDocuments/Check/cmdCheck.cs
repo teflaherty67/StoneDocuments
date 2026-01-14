@@ -1,5 +1,4 @@
-﻿
-using StoneDocuments.Common;
+﻿using StoneDocuments.Common;
 
 namespace StoneDocuments
 {
