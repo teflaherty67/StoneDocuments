@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoneDocuments"
         mc:Ignorable="d"
-        Title="Batch Update Revit Files" Height="160" Width="400" MinWidth="300" MinHeight="150">
+        Title="Batch Update Revit Files" Height="220" Width="400" MinWidth="300" MinHeight="200">
     <Border Margin="10">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Select Folder to Update:"/>
+            <Label Grid.Row="0" Content="Select Source Folder:"/>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -23,11 +25,22 @@
                 <TextBox x:Name="tbxFolder" Grid.Column="0" Height="25"/>
                 <Button x:Name="btnSelect" Width="90" Content="Select.." Grid.Column="1" Height="25" Margin="5,2,5,0" VerticalAlignment="Top" Click="btnSelect_Click"/>
             </Grid>
-            <CheckBox x:Name="cbxSubFolders" Grid.Row="2" Content="Include Subfolders" VerticalAlignment="Center" IsChecked="True"/>
-            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Button x:Name="btnOK" Grid.Row="3" Content="OK" Width="90" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
-                <Button x:Name="btnCancel" Grid.Row="3" Content="Cancel" Width="90" Height="30" Margin="0,0,10,0" Click="btnCancel_Click"/>
-                <Button x:Name="btnHelp" Grid.Row="3" Content="Help" Width="90" Height="30" Click="btnHelp_Click"/>
+
+            <Label Grid.Row="2" Content="Select Target Folder:"/>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="tbxTargetFolder" Grid.Column="0" Height="25"/>
+                <Button x:Name="btnTargetSelect" Width="90" Content="Select.." Grid.Column="1" Height="25" Margin="5,2,5,0" VerticalAlignment="Top" Click="btnSelect_Click"/>
+            </Grid>
+
+            <CheckBox x:Name="cbxSubFolders" Grid.Row="4" Content="Include Subfolders" VerticalAlignment="Center" IsChecked="True"/>
+            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button x:Name="btnOK" Content="OK" Width="90" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
+                <Button x:Name="btnCancel" Content="Cancel" Width="90" Height="30" Margin="0,0,10,0" Click="btnCancel_Click"/>
+                <Button x:Name="btnHelp" Content="Help" Width="90" Height="30" Click="btnHelp_Click"/>
             </StackPanel>
         </Grid>
     </Border>
