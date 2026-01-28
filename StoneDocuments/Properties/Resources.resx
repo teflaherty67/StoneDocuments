@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BatchUpdate_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BatchUpdate_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BatchUpdate_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BatchUpdate_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="BugReport_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BugReport_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -135,6 +141,12 @@
   </data>
   <data name="Clear_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Clear_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DeleteBackups_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteBackups_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DeleteBackups_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteBackups_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ScheduleSwap_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ScheduleSwap_16.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

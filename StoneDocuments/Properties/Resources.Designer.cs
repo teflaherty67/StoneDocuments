@@ -19,7 +19,7 @@ namespace StoneDocuments.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -57,6 +57,26 @@ namespace StoneDocuments.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] BatchUpdate_16 {
+            get {
+                object obj = ResourceManager.GetObject("BatchUpdate_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] BatchUpdate_32 {
+            get {
+                object obj = ResourceManager.GetObject("BatchUpdate_32", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -116,6 +136,26 @@ namespace StoneDocuments.Properties {
         internal static byte[] Clear_32 {
             get {
                 object obj = ResourceManager.GetObject("Clear_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DeleteBackups_16 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteBackups_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DeleteBackups_32 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteBackups_32", resourceCulture);
                 return ((byte[])(obj));
             }
         }

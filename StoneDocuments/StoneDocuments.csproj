@@ -77,10 +77,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\BatchUpdate_16.png" />
+	  <None Remove="Resources\BatchUpdate_32.png" />
 	  <None Remove="Resources\Check_16.png" />
 	  <None Remove="Resources\Check_32.png" />
 	  <None Remove="Resources\Clear_16.png" />
 	  <None Remove="Resources\Clear_32.png" />
+	  <None Remove="Resources\DeleteBackups_16.png" />
+	  <None Remove="Resources\DeleteBackups_32.png" />
 	  <None Remove="Resources\ScheduleSwap_16.jpg" />
 	  <None Remove="Resources\ScheduleSwap_32.jpg" />
 	  <None Remove="Resources\SheetMaker_16.png" />
@@ -88,10 +92,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Resources\BatchUpdate_16.png" />
+	  <EmbeddedResource Include="Resources\BatchUpdate_32.png" />
 	  <EmbeddedResource Include="Resources\Check_16.png" />
 	  <EmbeddedResource Include="Resources\Check_32.png" />
 	  <EmbeddedResource Include="Resources\Clear_16.png" />
 	  <EmbeddedResource Include="Resources\Clear_32.png" />
+	  <EmbeddedResource Include="Resources\DeleteBackups_16.png" />
+	  <EmbeddedResource Include="Resources\DeleteBackups_32.png" />
 	  <EmbeddedResource Include="Resources\ScheduleSwap_16.jpg" />
 	  <EmbeddedResource Include="Resources\ScheduleSwap_32.jpg" />
 	  <EmbeddedResource Include="Resources\SheetMaker_16.png" />
