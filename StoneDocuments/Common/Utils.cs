@@ -113,6 +113,21 @@ namespace StoneDocuments.Common
 
         #endregion
 
+        #region Print Sets
+
+        internal static List<ViewSheetSet> GetAndSortAllPrintSets(Document curDoc)
+        {
+            var m_returnList = new FilteredElementCollector(curDoc)
+                .OfClass(typeof(ViewSheetSet))
+                .Cast<ViewSheetSet>()
+                .OrderBy(vss => vss.Name)
+                .ToList();
+
+            return m_returnList;
+        }
+
+        #endregion
+
         #region Ribbon
 
         internal static RibbonPanel CreateRibbonPanel(UIControlledApplication app, string tabName, string panelName)
@@ -345,7 +360,18 @@ namespace StoneDocuments.Common
 
         #endregion
 
-        #region Sheets       
+        #region Sheets
+
+        internal static List<ViewSheet> GetAndSortAllSheets(Document curDoc)
+        {
+            var m_returnList = new FilteredElementCollector(curDoc)
+                .OfClass(typeof(ViewSheet))
+                .Cast<ViewSheet>()
+                .OrderBy(s => s.SheetNumber)
+                .ToList();
+
+            return m_returnList;
+        }
 
         internal static List<string> GetAllSheetCategoriesByName(Document curDoc, string paramName)
         {
