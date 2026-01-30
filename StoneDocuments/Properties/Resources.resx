@@ -142,17 +142,35 @@
   <data name="Clear_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Clear_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="DecrementSheets_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DecrementSheets_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DecrementSheets_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DecrementSheets_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="DeleteBackups_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeleteBackups_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DeleteBackups_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeleteBackups_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="IncrementSheets_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IncrementSheets_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="IncrementSheets_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IncrementSheets_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="ScheduleSwap_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ScheduleSwap_16.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ScheduleSwap_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ScheduleSwap_32.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SelectSheets_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SelectSheets_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SelectSheets_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SelectSheets_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SheetMaker_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SheetMaker_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

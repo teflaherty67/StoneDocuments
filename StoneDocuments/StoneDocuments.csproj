@@ -83,10 +83,16 @@
 	  <None Remove="Resources\Check_32.png" />
 	  <None Remove="Resources\Clear_16.png" />
 	  <None Remove="Resources\Clear_32.png" />
+	  <None Remove="Resources\DecrementSheets_16.png" />
+	  <None Remove="Resources\DecrementSheets_32.png" />
 	  <None Remove="Resources\DeleteBackups_16.png" />
 	  <None Remove="Resources\DeleteBackups_32.png" />
+	  <None Remove="Resources\IncrementSheets_16.png" />
+	  <None Remove="Resources\IncrementSheets_32.png" />
 	  <None Remove="Resources\ScheduleSwap_16.jpg" />
 	  <None Remove="Resources\ScheduleSwap_32.jpg" />
+	  <None Remove="Resources\SelectSheets_16.png" />
+	  <None Remove="Resources\SelectSheets_32.png" />
 	  <None Remove="Resources\SheetMaker_16.png" />
 	  <None Remove="Resources\SheetMaker_32.png" />
 	</ItemGroup>
@@ -98,10 +104,16 @@
 	  <EmbeddedResource Include="Resources\Check_32.png" />
 	  <EmbeddedResource Include="Resources\Clear_16.png" />
 	  <EmbeddedResource Include="Resources\Clear_32.png" />
+	  <EmbeddedResource Include="Resources\DecrementSheets_16.png" />
+	  <EmbeddedResource Include="Resources\DecrementSheets_32.png" />
 	  <EmbeddedResource Include="Resources\DeleteBackups_16.png" />
 	  <EmbeddedResource Include="Resources\DeleteBackups_32.png" />
+	  <EmbeddedResource Include="Resources\IncrementSheets_16.png" />
+	  <EmbeddedResource Include="Resources\IncrementSheets_32.png" />
 	  <EmbeddedResource Include="Resources\ScheduleSwap_16.jpg" />
 	  <EmbeddedResource Include="Resources\ScheduleSwap_32.jpg" />
+	  <EmbeddedResource Include="Resources\SelectSheets_16.png" />
+	  <EmbeddedResource Include="Resources\SelectSheets_32.png" />
 	  <EmbeddedResource Include="Resources\SheetMaker_16.png" />
 	  <EmbeddedResource Include="Resources\SheetMaker_32.png" />
 	</ItemGroup>

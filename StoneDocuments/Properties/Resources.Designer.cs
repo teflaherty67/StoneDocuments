@@ -143,6 +143,26 @@ namespace StoneDocuments.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DecrementSheets_16 {
+            get {
+                object obj = ResourceManager.GetObject("DecrementSheets_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DecrementSheets_32 {
+            get {
+                object obj = ResourceManager.GetObject("DecrementSheets_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] DeleteBackups_16 {
             get {
                 object obj = ResourceManager.GetObject("DeleteBackups_16", resourceCulture);
@@ -163,6 +183,26 @@ namespace StoneDocuments.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] IncrementSheets_16 {
+            get {
+                object obj = ResourceManager.GetObject("IncrementSheets_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] IncrementSheets_32 {
+            get {
+                object obj = ResourceManager.GetObject("IncrementSheets_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ScheduleSwap_16 {
             get {
                 object obj = ResourceManager.GetObject("ScheduleSwap_16", resourceCulture);
@@ -176,6 +216,26 @@ namespace StoneDocuments.Properties {
         internal static byte[] ScheduleSwap_32 {
             get {
                 object obj = ResourceManager.GetObject("ScheduleSwap_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SelectSheets_16 {
+            get {
+                object obj = ResourceManager.GetObject("SelectSheets_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SelectSheets_32 {
+            get {
+                object obj = ResourceManager.GetObject("SelectSheets_32", resourceCulture);
                 return ((byte[])(obj));
             }
         }

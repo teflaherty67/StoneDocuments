@@ -206,8 +206,8 @@ namespace StoneDocuments
         internal static PushButtonData GetButtonData()
         {
             // use this method to define the properties for this command in the Revit ribbon
-            string buttonInternalName = "btnCommand1";
-            string buttonTitle = "Button 1";
+            string buttonInternalName = "btnCmd3_1";
+            string buttonTitle = "Batch\rUpdate";
 
             clsButtonData myButtonData = new clsButtonData(
                 buttonInternalName,
@@ -215,7 +215,7 @@ namespace StoneDocuments
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.BatchUpdate_32,
                 Properties.Resources.BatchUpdate_16,
-                "This is a tooltip for Button 1");
+                "Batch updates all Revit files from a source directory and saves them to the target directory");
 
             return myButtonData.Data;
         }

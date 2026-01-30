@@ -76,7 +76,7 @@ namespace StoneDocuments
         internal static PushButtonData GetButtonData()
         {
             // use this method to define the properties for this command in the Revit ribbon
-            string buttonInternalName = "btnCmd7_2a";
+            string buttonInternalName = "btnCmd2_3";
             string buttonTitle = "Select\rSheets";
 
             clsButtonData myButtonData = new clsButtonData(

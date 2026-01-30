@@ -126,8 +126,8 @@ namespace StoneDocuments
         internal static PushButtonData GetButtonData()
         {
             // use this method to define the properties for this command in the Revit ribbon
-            string buttonInternalName = "btnCommand1";
-            string buttonTitle = "Button 1";
+            string buttonInternalName = "btnCmd3_2";
+            string buttonTitle = "Delete\rBackups";
 
             clsButtonData myButtonData = new clsButtonData(
                 buttonInternalName,
@@ -135,7 +135,7 @@ namespace StoneDocuments
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.DeleteBackups_32,
                 Properties.Resources.DeleteBackups_16,
-                "This is a tooltip for Button 1");
+                "Deletes all backup files in the selected directory");
 
             return myButtonData.Data;
         }
