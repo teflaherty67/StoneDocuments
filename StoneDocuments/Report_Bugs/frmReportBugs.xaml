@@ -5,62 +5,173 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoneDocuments"
         mc:Ignorable="d"
-                Title="Bug Report" Height="450" Width="500">
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <!-- Command Name Section -->
-        <Label Grid.Row="0" 
-               Content="Command Name:" 
-               FontWeight="Bold" 
-               Margin="0,0,0,5"/>
+        Title="Bug Report" 
+        Height="450" 
+        Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
 
-        <ComboBox Grid.Row="1" 
-         Name="cmbCommands"
-         Height="25" 
-         Margin="0,0,0,15"
-         IsReadOnly="False"                 
-         VerticalContentAlignment="Center"/>
+    <Window.Resources>
+        <!-- Button Style -->
+        <Style x:Key="StyledButton" TargetType="Button">
+            <Setter Property="Background" Value="#E5E7EB"/>
+            <Setter Property="BorderBrush" Value="#9CA3AF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#D1D5DB"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#9CA3AF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
-        <!-- Error Description Section -->
-        <Label Grid.Row="2" 
-               Content="Error Description:" 
-               FontWeight="Bold" 
-               Margin="0,0,0,5"/>
+    <Border Background="White" 
+            CornerRadius="8" 
+            BorderBrush="#9CA3AF" 
+            BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="3" 
-                 Name="DescriptionTextBox"
-                 Margin="0,0,0,20"
-                 TextWrapping="Wrap"
-                 AcceptsReturn="True"
-                 AcceptsTab="True"
-                 VerticalScrollBarVisibility="Auto"
-                 HorizontalScrollBarVisibility="Auto"
-                 VerticalContentAlignment="Top"
-                 Padding="5"/>
+            <!-- Title Bar -->
+            <Border Grid.Row="0"
+                    Background="#2B5A8E"
+                    CornerRadius="8,8,0,0"
+                    BorderBrush="#E5E7EB"
+                    BorderThickness="0,0,0,1">
+                <Grid>
+                    <TextBlock Text="Bug Report" 
+                               FontSize="14" 
+                               FontWeight="SemiBold"
+                               Foreground="White"
+                               VerticalAlignment="Center"
+                               Margin="15,0,0,0"/>
+                    <Button Content="×" 
+                            Width="30" 
+                            Height="30"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Margin="0,0,5,0"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontSize="20"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Click="CancelButton_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                                    CornerRadius="3">
+                                                <ContentPresenter HorizontalAlignment="Center" 
+                                                                  VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#E5E7EB"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </Border>
 
-        <!-- Buttons -->
-        <StackPanel Grid.Row="4" 
-                    Orientation="Horizontal" 
-                    HorizontalAlignment="Right">
-            <Button Name="SendButton" 
-                    Content="Send Report" 
-                    Width="100" 
-                    Height="35" 
-                    Margin="0,0,10,0"
-                    Click="SendButton_Click"
-                    IsDefault="True"/>
-            <Button Name="CancelButton" 
-                    Content="Cancel" 
-                    Width="80" 
-                    Height="35"
-                    Click="CancelButton_Click"
-                    IsCancel="True"/>
-        </StackPanel>
-    </Grid>
+            <!-- Content Area -->
+            <Border Grid.Row="1" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Command Name Section -->
+                    <Label Grid.Row="0" 
+                           Content="Command Name:" 
+                           FontWeight="Bold" 
+                           FontSize="11"
+                           Margin="0,0,0,5"/>
+
+                    <ComboBox Grid.Row="1" 
+                              Name="cmbCommands"
+                              Height="25" 
+                              Margin="0,0,0,15"
+                              FontSize="11"
+                              IsReadOnly="False"                 
+                              VerticalContentAlignment="Center"/>
+
+                    <!-- Error Description Section -->
+                    <Label Grid.Row="2" 
+                           Content="Error Description:" 
+                           FontWeight="Bold" 
+                           FontSize="11"
+                           Margin="0,0,0,5"/>
+
+                    <TextBox Grid.Row="3" 
+                             Name="DescriptionTextBox"
+                             Margin="0,0,0,20"
+                             FontSize="11"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             AcceptsTab="True"
+                             VerticalScrollBarVisibility="Auto"
+                             HorizontalScrollBarVisibility="Auto"
+                             VerticalContentAlignment="Top"
+                             Padding="5"/>
+
+                    <!-- Buttons -->
+                    <StackPanel Grid.Row="4" 
+                                Orientation="Horizontal" 
+                                HorizontalAlignment="Right">
+                        <Button Name="SendButton" 
+                                Content="Send Report" 
+                                Width="80" 
+                                Height="30" 
+                                Margin="0,0,10,0"
+                                Click="SendButton_Click"
+                                IsDefault="True"
+                                Style="{StaticResource StyledButton}"/>
+                        <Button Name="CancelButton" 
+                                Content="Cancel" 
+                                Width="80" 
+                                Height="30"
+                                Click="CancelButton_Click"
+                                IsCancel="True"
+                                Style="{StaticResource StyledButton}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Window>
