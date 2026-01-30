@@ -85,7 +85,7 @@ namespace StoneDocuments
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.SelectSheets_32,
                 Properties.Resources.SelectSheets_16,
-                "This is a tooltip for Button 1");
+                "Activates seleted sheets for editing.");
 
             return myButtonData.Data;
         }

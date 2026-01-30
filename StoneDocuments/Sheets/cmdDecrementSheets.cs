@@ -190,7 +190,7 @@ namespace StoneDocuments
         {
             // use this method to define the properties for this command in the Revit ribbon
             string buttonInternalName = "btnCmd2_5";
-            string buttonTitle = "Decrement Selected\rSheet Numbers";
+            string buttonTitle = "Decrement\rSheets";
 
             clsButtonData myButtonData = new clsButtonData(
                 buttonInternalName,
@@ -198,7 +198,7 @@ namespace StoneDocuments
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.DecrementSheets_32,
                 Properties.Resources.DecrementSheets_16,
-                "This is a tooltip for Button 2");
+                "Decrements the selected sheet numbers by user provided value.");
 
             return myButtonData.Data;
         }

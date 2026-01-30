@@ -199,7 +199,7 @@ namespace StoneDocuments
         {
             // use this method to define the properties for this command in the Revit ribbon
             string buttonInternalName = "btnCmd2_4";
-            string buttonTitle = "Increment Selected\rSheet Numbers";
+            string buttonTitle = "Increment\rSheets";
 
             clsButtonData myButtonData = new clsButtonData(
                 buttonInternalName,
@@ -207,7 +207,7 @@ namespace StoneDocuments
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.IncrementSheets_32,
                 Properties.Resources.IncrementSheets_16,
-                "This is a tooltip for Button 1");
+                "Increments the selected sheet numbers by user provided value.");
 
             return myButtonData.Data;
         }

@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoneDocuments"
-        mc:Ignorable="d"
-                Title="Delete Backup Files" 
+        mc:Ignorable="d" 
         Height="200" 
         Width="400" 
         MinWidth="300" 
@@ -65,7 +64,7 @@
                     BorderBrush="#E5E7EB"
                     BorderThickness="0,0,0,1">
                 <Grid>
-                    <TextBlock Text="Delete Revit Backup Files" 
+                    <TextBlock Text="Delete Backup Files" 
                                FontSize="14" 
                                FontWeight="SemiBold"
                                Foreground="#1F2937"

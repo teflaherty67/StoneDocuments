@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoneDocuments"
-        mc:Ignorable="d"
-                Title="Batch Update" 
+        mc:Ignorable="d" 
         Height="250" 
         Width="400" 
         MinWidth="300" 
@@ -65,7 +64,7 @@
         BorderBrush="#E5E7EB"
         BorderThickness="0,0,0,1">
                 <Grid>
-                    <TextBlock Text="Batch Update Revit Files" 
+                    <TextBlock Text="Batch Update" 
                                FontSize="14" 
                                FontWeight="SemiBold"
                                Foreground="#1F2937"

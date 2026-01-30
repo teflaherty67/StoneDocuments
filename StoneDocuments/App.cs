@@ -57,7 +57,7 @@ namespace StoneDocuments
             PushButton myButton3_2 = panel03.AddItem(btnData3_2) as PushButton;
 
             // create buttons for panel 04
-            PushButton myButton4_1 = panel03.AddItem(btnData4_1) as PushButton;
+            PushButton myButton4_1 = panel04.AddItem(btnData4_1) as PushButton;
 
             //NOTE:
             //    To create a new tool, copy lines 35 and 39 and rename the variables to "btnData3" and "myButton3".

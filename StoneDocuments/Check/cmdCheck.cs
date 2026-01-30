@@ -181,7 +181,7 @@ namespace StoneDocuments
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.Check_32,
                 Properties.Resources.Check_16,
-                "Check parts by schedule and override surface foreground color.");
+                "Check parts by schedule and overrides surface foreground color.");
 
             return myButtonData.Data;
         }
