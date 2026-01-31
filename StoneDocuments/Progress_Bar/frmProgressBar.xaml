@@ -5,16 +5,116 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoneDocuments.Progress_Bar"
         mc:Ignorable="d"
-                Title="Progress" Height="175" Width="300">
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
-        <TextBlock x:Name="lblText" Grid.Row="0" Text="Updating Element X of X" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <ProgressBar x:Name="pbProgress" Grid.Row="1" Margin="10,10,10,10" Height="30"/>
-        <Button x:Name="btnCancel" Grid.Row="2" Width="100" Height="25" Content="Cancel" Click="btnCancel_Click"/>
-    </Grid>
+        Title="Progress" 
+        Height="180" 
+        Width="400" 
+        MinWidth="400" 
+        MinHeight="180"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+
+    <Window.Resources>
+        <!-- Button Style -->
+        <Style x:Key="StyledButton" TargetType="Button">
+            <Setter Property="Background" Value="#E5E7EB"/>
+            <Setter Property="BorderBrush" Value="#9CA3AF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#D1D5DB"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#9CA3AF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="White" 
+            CornerRadius="8" 
+            BorderBrush="#9CA3AF" 
+            BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title Bar -->
+            <Border Grid.Row="0"
+                    Background="#2B5A8E"
+                    CornerRadius="8,8,0,0"
+                    BorderBrush="#E5E7EB"
+                    BorderThickness="0,0,0,1">
+                <Grid>
+                    <TextBlock Text="Processing..." 
+                               FontSize="14" 
+                               FontWeight="SemiBold"
+                               Foreground="White"
+                               VerticalAlignment="Center"
+                               Margin="15,0,0,0"/>
+                </Grid>
+            </Border>
+
+            <!-- Content Area -->
+            <Border Grid.Row="1" Margin="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Status Text -->
+                    <TextBlock x:Name="lblText" 
+                               Grid.Row="0" 
+                               Text="Processing items..." 
+                               FontSize="11"
+                               Margin="0,0,0,10"
+                               TextWrapping="Wrap"/>
+
+                    <!-- Progress Bar -->
+                    <ProgressBar x:Name="pbProgress" 
+                                 Grid.Row="1" 
+                                 Height="25" 
+                                 Margin="0,0,0,15"
+                                 Minimum="0"
+                                 Maximum="100"
+                                 Value="0"/>
+
+                    <!-- Spacer -->
+                    <Grid Grid.Row="2"/>
+
+                    <!-- Cancel Button -->
+                    <Button x:Name="btnCancel" 
+                            Grid.Row="3" 
+                            Content="Cancel" 
+                            Width="90" 
+                            Height="30" 
+                            HorizontalAlignment="Center"
+                            Click="btnCancel_Click"
+                            Style="{StaticResource StyledButton}"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

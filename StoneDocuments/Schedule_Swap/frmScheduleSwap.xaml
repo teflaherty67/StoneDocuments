@@ -5,44 +5,195 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoneDocuments"
         mc:Ignorable="d"
-        Title="Schedule Swapper" d:DesignHeight="175" d:DesignWidth="400" MinWidth="375" MinHeight="125" >
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        Title="Schedule Swapper" 
+        Height="240" 
+        Width="475" 
+        MinWidth="450" 
+        MinHeight="240"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
 
-        <!-- Row 0 -->
-        <GroupBox Grid.Row="0" Grid.Column="0" Header="Schedule to replace:" BorderThickness="0">
-            <ComboBox x:Name="cmbCurSchedules" DisplayMemberPath="Name" Width="175"/>
-        </GroupBox>
-        <GroupBox Grid.Row="0" Grid.Column="1" Header="Select new schedule:" BorderThickness="0">
-            <ComboBox x:Name="cmbNewSchedules" DisplayMemberPath="Name" Width="175"/>
-        </GroupBox>
+    <Window.Resources>
+        <!-- Button Style -->
+        <Style x:Key="StyledButton" TargetType="Button">
+            <Setter Property="Background" Value="#E5E7EB"/>
+            <Setter Property="BorderBrush" Value="#9CA3AF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#D1D5DB"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#9CA3AF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
-        <!-- Row 1 -->
-        <GroupBox Grid.Row="1" Grid.Column="1" Header="Search for schedule:" BorderThickness="0">
-            <ComboBox x:Name="cmbSearchSchedules"
-                      DisplayMemberPath="Name"
-                      Width="175"
-                      IsEditable="True"
-                      IsTextSearchEnabled="False"
-                      StaysOpenOnEdit="True"
-                      SelectionChanged="cmbSearchSchedules_SelectionChanged"
-                      KeyUp="cmbSearchSchedules_KeyUp"/>
-        </GroupBox>
+    <Border Background="White" 
+            CornerRadius="8" 
+            BorderBrush="#9CA3AF" 
+            BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <!-- Row 3 (buttons) -->
-        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="btnOK" Width="90" Content="OK" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
-            <Button x:Name="btnCancel" Width="90" Content="Cancel" Height="30" Click="btnCancel_Click" Margin="0,0,10,0"/>
-            <Button x:Name="btnHelp" Width="90" Content="Help" Height="30" Click="btnCancel_Click" Margin="0,0,10,0"/>
-        </StackPanel>
-    </Grid>
+            <!-- Title Bar -->
+            <Border Grid.Row="0"
+                    Background="#2B5A8E"
+                    CornerRadius="8,8,0,0"
+                    BorderBrush="#E5E7EB"
+                    BorderThickness="0,0,0,1">
+                <Grid>
+                    <TextBlock Text="Schedule Swapper" 
+                               FontSize="14" 
+                               FontWeight="SemiBold"
+                               Foreground="White"
+                               VerticalAlignment="Center"
+                               Margin="15,0,0,0"/>
+                    <Button Content="×" 
+                            Width="30" 
+                            Height="30"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Margin="0,0,5,0"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontSize="20"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Click="btnCancel_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                                    CornerRadius="3">
+                                                <ContentPresenter HorizontalAlignment="Center" 
+                                                                  VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#E5E7EB"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- Content Area -->
+            <Border Grid.Row="1" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Row 0 -->
+                    <GroupBox Grid.Row="0" Grid.Column="0" 
+                              Header="Schedule to replace:" 
+                              BorderThickness="0"
+                              FontSize="11">
+                        <ComboBox x:Name="cmbCurSchedules" 
+                                  DisplayMemberPath="Name" 
+                                  Width="190"
+                                  Height="25"
+                                  FontSize="11"
+                                  VerticalContentAlignment="Center"/>
+                    </GroupBox>
+
+                    <GroupBox Grid.Row="0" Grid.Column="1" 
+                              Header="Select new schedule:" 
+                              BorderThickness="0"
+                              FontSize="11">
+                        <ComboBox x:Name="cmbNewSchedules" 
+                                  DisplayMemberPath="Name" 
+                                  Width="190"
+                                  Height="25"
+                                  FontSize="11"
+                                  VerticalContentAlignment="Center"/>
+                    </GroupBox>
+
+                    <!-- Row 1 -->
+                    <GroupBox Grid.Row="1" Grid.Column="1" 
+                              Header="Search for schedule:" 
+                              BorderThickness="0"
+                              FontSize="11">
+                        <ComboBox x:Name="cmbSearchSchedules"
+                                  DisplayMemberPath="Name"
+                                  Width="190"
+                                  Height="25"
+                                  FontSize="11"
+                                  IsEditable="True"
+                                  IsTextSearchEnabled="False"
+                                  StaysOpenOnEdit="True"
+                                  VerticalContentAlignment="Center"
+                                  SelectionChanged="cmbSearchSchedules_SelectionChanged"
+                                  KeyUp="cmbSearchSchedules_KeyUp"/>
+                    </GroupBox>
+
+                    <!-- Row 3 (buttons) -->
+                    <StackPanel Grid.Row="3" 
+                                Grid.Column="0" 
+                                Grid.ColumnSpan="2" 
+                                Orientation="Horizontal" 
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom">
+                        <Button x:Name="btnOK" 
+                                Width="90" 
+                                Content="OK" 
+                                Height="30" 
+                                Margin="0,0,10,0" 
+                                Click="btnOK_Click"
+                                Style="{StaticResource StyledButton}"/>
+                        <Button x:Name="btnCancel" 
+                                Width="90" 
+                                Content="Cancel" 
+                                Height="30" 
+                                Margin="0,0,10,0"
+                                Click="btnCancel_Click"
+                                Style="{StaticResource StyledButton}"/>
+                        <Button x:Name="btnHelp" 
+                                Width="90" 
+                                Content="Help" 
+                                Height="30" 
+                                Click="btnHelp_Click"
+                                Style="{StaticResource StyledButton}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

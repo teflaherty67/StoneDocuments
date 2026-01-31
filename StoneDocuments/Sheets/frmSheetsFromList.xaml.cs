@@ -100,6 +100,7 @@ namespace StoneDocuments
 
             // Set window properties
             Title = config.Title;
+            titleText.Text = config.Title;
             select_b.Content = config.ButtonText;
 
             // Store ViewSheets and ViewSheetSets if this is a sheet selection
@@ -371,6 +372,20 @@ namespace StoneDocuments
 
             SelectedItems = selectedItems;
             DialogResult = true;
+        }
+
+        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 1)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+            this.Close();
         }
 
         #endregion

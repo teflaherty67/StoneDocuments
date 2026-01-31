@@ -5,10 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoneDocuments"
         mc:Ignorable="d"
-                ShowInTaskbar="False"
+        ShowInTaskbar="False"
         WindowStartupLocation="CenterScreen"
-        HorizontalContentAlignment="Center" Height="400" Width="350">
+        HorizontalContentAlignment="Center" 
+        Height="450" 
+        Width="400"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+
     <Window.Resources>
+        <!-- Button Style -->
+        <Style x:Key="StyledButton" TargetType="Button">
+            <Setter Property="Background" Value="#E5E7EB"/>
+            <Setter Property="BorderBrush" Value="#9CA3AF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#D1D5DB"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#9CA3AF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="ClearButton" TargetType="Button">
             <Setter Property="Background" Value="White"/>
         </Style>
@@ -36,6 +72,7 @@
         <ControlTemplate x:Key="ItemTemplate">
             <TextBlock Text="{Binding DisplayName}"
                        VerticalAlignment="Center"
+                       FontSize="11"
                        Margin="10,0,0,0"/>
         </ControlTemplate>
 
@@ -51,7 +88,8 @@
                           Checked="check_selected"
                           Unchecked="uncheck_selected"/>
                 <Control Grid.Column="1"
-                         VerticalAlignment="Center" VerticalContentAlignment="Center"
+                         VerticalAlignment="Center" 
+                         VerticalContentAlignment="Center"
                          Template="{DynamicResource ItemTemplate}"/>
             </Grid>
         </DataTemplate>
@@ -60,114 +98,231 @@
             <VirtualizingStackPanel />
         </ItemsPanelTemplate>
     </Window.Resources>
-    <DockPanel Margin="10">
-        <StackPanel DockPanel.Dock="Top" Margin="0,0,0,10">
-            <DockPanel>
-                <ToggleButton x:Name="filterMode_b" ToolTip="Switch between regular expression and fuzzy filtering"
-                  Content="{StaticResource filterIcon}" Width="24" Height="24" Margin="0,0,10,0" Click="switch_filter_mode" />
-                <StackPanel>
-                    <TextBox x:Name="search_tb" Height="25"
-                 Padding="5,0,24,0"
-                 VerticalContentAlignment="Center"/>
-                    <Button x:Name="clrsearch_b" Visibility="Collapsed" Margin="0,-25,2,0" Padding="0,-4,0,0"
-                Width="22px" Height="22px" HorizontalAlignment="Right"
-                BorderThickness="0"
-                Style="{StaticResource ClearButton}"
-                Click="clear_search">
-                        <Button.Content>
-                            <Canvas Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Path Canvas.Top="3" Canvas.Left="1" Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Fill="DimGray" />
-                            </Canvas>
-                        </Button.Content>
-                    </Button>
-                </StackPanel>
-            </DockPanel>
 
-            <!-- Sheet sets dropdown -->
-            <DockPanel x:Name="ctx_groups_dock" Margin="0,10,0,0" Visibility="Collapsed">
-                <TextBlock x:Name="ctx_groups_title_tb" FontSize="14" Margin="0,3,10,0"
-                           DockPanel.Dock="Left">List Group:</TextBlock>
-                <ComboBox x:Name="ctx_groups_selector_cb" Height="25"/>
-            </DockPanel>
-        </StackPanel>
-
-        <StackPanel DockPanel.Dock="Bottom">
-            <!-- Check/Uncheck/Help buttons row -->
-            <Grid x:Name="checkboxbuttons_g" Height="30" Margin="0,10,0,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Button x:Name="checkall_b" Height="25"
-                        Grid.Column="0" Grid.Row="0"
-                        Content="Check All" Click="check_all"
-                        VerticalAlignment="Center"
-                        Margin="0,0,3,0"/>
-                <Button x:Name="uncheckall_b" Height="25"
-                        Grid.Column="1" Grid.Row="0"
-                        Content="Uncheck All" Click="uncheck_all"
-                        VerticalAlignment="Center"
-                        Margin="3,0,3,0"/>
-                <Button x:Name="help_b" Height="25"
-                        Grid.Column="2" Grid.Row="0"
-                        Content="Help" Click="help_click"
-                        VerticalAlignment="Center"
-                        Margin="3,0,0,0"/>
-            </Grid>
-
-            <!-- Main button row with increment input -->
-            <Grid x:Name="bottomButtonGrid" Height="30" Margin="0,5,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <!-- Increment input panel (moved to left side) -->
-                <StackPanel x:Name="incrementPanel" Grid.Column="0" Orientation="Horizontal" 
-                Margin="0,0,10,0" VerticalAlignment="Center" Visibility="Collapsed">
-                    <TextBlock x:Name="incrementLabel_tb" Text="Increment by:" 
-                   VerticalAlignment="Center" Margin="0,0,5,0" FontSize="12"/>
-                    <TextBox x:Name="incrementValue_tb" 
-                 Width="50" Height="25" 
-                 VerticalContentAlignment="Center" 
-                 TextAlignment="Center" Text="1"/>
-                </StackPanel>
-
-                <!-- Main action button (moved to right side) -->
-                <Button x:Name="select_b" Content="" Height="25" Click="button_select" 
-            Grid.Column="1" VerticalAlignment="Center"/>
-            </Grid>
-        </StackPanel>
-
-        <!-- Main content area -->
+    <Border Background="White" 
+            CornerRadius="8" 
+            BorderBrush="#9CA3AF" 
+            BorderThickness="1">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" MinWidth="50" />
-                <ColumnDefinition x:Name="splitterCol" Width="Auto" />
-                <ColumnDefinition x:Name="infoCol" Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <ListView x:Name="list_lb"
-                      Grid.Column="0"
-                      MouseDoubleClick="button_select"
-                      SelectionChanged="selected_item_changed"
-                      SelectionMode="Extended"
-                      HorizontalContentAlignment="Stretch"
-                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                      ItemTemplate="{DynamicResource ItemContainerTemplate}"
-                      ItemsPanel="{DynamicResource ItemsPanelTemplate}"
-                      VirtualizingStackPanel.IsVirtualizing="True"
-                      VirtualizingStackPanel.VirtualizationMode="Recycling"
-                      ScrollViewer.CanContentScroll="True"/>
-            <GridSplitter x:Name="infoSplitter" Grid.Column="1" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" ResizeDirection="Columns" Visibility="Collapsed" />
-            <ScrollViewer x:Name="infoPanel" Grid.Column="2" Visibility="Collapsed">
-                <TextBlock x:Name="infoData" Margin="10,0,0,0" TextWrapping="Wrap" />
-            </ScrollViewer>
-        </Grid>
-    </DockPanel>
-</Window>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
+            <!-- Title Bar -->
+            <Border Grid.Row="0"
+                    Background="#2B5A8E"
+                    CornerRadius="8,8,0,0"
+                    BorderBrush="#E5E7EB"
+                    BorderThickness="0,0,0,1"
+                    MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <Grid>
+                    <TextBlock x:Name="titleText" 
+                               Text="Select Items" 
+                               FontSize="14" 
+                               FontWeight="SemiBold"
+                               Foreground="White"
+                               VerticalAlignment="Center"
+                               Margin="15,0,0,0"/>
+                    <Button Content="×" 
+                            Width="30" 
+                            Height="30"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Margin="0,0,5,0"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontSize="20"
+                            Foreground="White"
+                            Cursor="Hand"
+                            Click="CloseButton_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                                    CornerRadius="3">
+                                                <ContentPresenter HorizontalAlignment="Center" 
+                                                                  VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#E5E7EB"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- Content Area -->
+            <DockPanel Grid.Row="1" Margin="10">
+                <StackPanel DockPanel.Dock="Top" Margin="0,0,0,10">
+                    <DockPanel>
+                        <ToggleButton x:Name="filterMode_b"
+                                      ToolTip="Switch between regular expression and fuzzy filtering"
+                                      Content="{StaticResource filterIcon}"
+                                      Width="24"
+                                      Height="24"
+                                      Margin="0,0,10,0"
+                                      Click="switch_filter_mode"/>
+                        <StackPanel>
+                            <TextBox x:Name="search_tb" 
+                                     Height="25"
+                                     FontSize="11"
+                                     Padding="5,0,24,0"
+                                     VerticalContentAlignment="Center"/>
+                            <Button x:Name="clrsearch_b" 
+                                    Visibility="Collapsed" 
+                                    Margin="0,-25,2,0" 
+                                    Padding="0,-4,0,0"
+                                    Width="22px" 
+                                    Height="22px" 
+                                    HorizontalAlignment="Right"
+                                    BorderThickness="0"
+                                    Style="{StaticResource ClearButton}"
+                                    Click="clear_search">
+                                <Button.Content>
+                                    <Canvas Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Path Canvas.Top="3" Canvas.Left="1" Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Fill="DimGray" />
+                                    </Canvas>
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+                    </DockPanel>
+
+                    <!-- Sheet sets dropdown -->
+                    <DockPanel x:Name="ctx_groups_dock" Margin="0,10,0,0" Visibility="Collapsed">
+                        <TextBlock x:Name="ctx_groups_title_tb" 
+                                   FontSize="11" 
+                                   Margin="0,3,10,0"
+                                   DockPanel.Dock="Left">List Group:</TextBlock>
+                        <ComboBox x:Name="ctx_groups_selector_cb" 
+                                  Height="25"
+                                  FontSize="11"
+                                  VerticalContentAlignment="Center"/>
+                    </DockPanel>
+                </StackPanel>
+
+                <StackPanel DockPanel.Dock="Bottom">
+                    <!-- Check/Uncheck/Help buttons row -->
+                    <Grid x:Name="checkboxbuttons_g" Height="30" Margin="0,10,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="checkall_b" 
+                                Height="25"
+                                Grid.Column="0" 
+                                Grid.Row="0"
+                                Content="Check All" 
+                                Click="check_all"
+                                VerticalAlignment="Center"
+                                Margin="0,0,3,0"
+                                Style="{StaticResource StyledButton}"/>
+                        <Button x:Name="uncheckall_b" 
+                                Height="25"
+                                Grid.Column="1" 
+                                Grid.Row="0"
+                                Content="Uncheck All" 
+                                Click="uncheck_all"
+                                VerticalAlignment="Center"
+                                Margin="3,0,3,0"
+                                Style="{StaticResource StyledButton}"/>
+                        <Button x:Name="help_b" 
+                                Height="25"
+                                Grid.Column="2" 
+                                Grid.Row="0"
+                                Content="Help" 
+                                Click="help_click"
+                                VerticalAlignment="Center"
+                                Margin="3,0,0,0"
+                                Style="{StaticResource StyledButton}"/>
+                    </Grid>
+
+                    <!-- Main button row with increment input -->
+                    <Grid x:Name="bottomButtonGrid" Height="30" Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Increment input panel (moved to left side) -->
+                        <StackPanel x:Name="incrementPanel" 
+                                    Grid.Column="0" 
+                                    Orientation="Horizontal" 
+                                    Margin="0,0,10,0" 
+                                    VerticalAlignment="Center" 
+                                    Visibility="Collapsed">
+                            <TextBlock x:Name="incrementLabel_tb" 
+                                       Text="Increment by:" 
+                                       VerticalAlignment="Center" 
+                                       Margin="0,0,5,0" 
+                                       FontSize="11"/>
+                            <TextBox x:Name="incrementValue_tb" 
+                                     Width="50" 
+                                     Height="25" 
+                                     FontSize="11"
+                                     VerticalContentAlignment="Center" 
+                                     TextAlignment="Center" 
+                                     Text="1"/>
+                        </StackPanel>
+
+                        <!-- Main action button (moved to right side) -->
+                        <Button x:Name="select_b" 
+                                Content="" 
+                                Height="25" 
+                                Click="button_select" 
+                                Grid.Column="1" 
+                                VerticalAlignment="Center"
+                                Style="{StaticResource StyledButton}"/>
+                    </Grid>
+                </StackPanel>
+
+                <!-- Main content area -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MinWidth="50" />
+                        <ColumnDefinition x:Name="splitterCol" Width="Auto" />
+                        <ColumnDefinition x:Name="infoCol" Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ListView x:Name="list_lb"
+                              Grid.Column="0"
+                              MouseDoubleClick="button_select"
+                              SelectionChanged="selected_item_changed"
+                              SelectionMode="Extended"
+                              HorizontalContentAlignment="Stretch"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              ItemTemplate="{DynamicResource ItemContainerTemplate}"
+                              ItemsPanel="{DynamicResource ItemsPanelTemplate}"
+                              VirtualizingStackPanel.IsVirtualizing="True"
+                              VirtualizingStackPanel.VirtualizationMode="Recycling"
+                              ScrollViewer.CanContentScroll="True"/>
+                    <GridSplitter x:Name="infoSplitter" 
+                                  Grid.Column="1" 
+                                  VerticalAlignment="Stretch"  
+                                  HorizontalAlignment="Stretch" 
+                                  ResizeDirection="Columns" 
+                                  Visibility="Collapsed" />
+                    <ScrollViewer x:Name="infoPanel" 
+                                  Grid.Column="2" 
+                                  Visibility="Collapsed">
+                        <TextBlock x:Name="infoData" 
+                                   Margin="10,0,0,0" 
+                                   FontSize="11"
+                                   TextWrapping="Wrap" />
+                    </ScrollViewer>
+                </Grid>
+            </DockPanel>
+        </Grid>
+    </Border>
+</Window>
