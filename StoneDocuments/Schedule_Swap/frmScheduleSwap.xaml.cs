@@ -109,7 +109,7 @@ namespace StoneDocuments
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://lifestyle-usa-design.atlassian.net/l/cp/eL0qinyA");
+            Process.Start("https://lifestyle-usa-design.atlassian.net/wiki/spaces/MFS/pages/611450881/Schedule+Swap");
         }
     }
 }
