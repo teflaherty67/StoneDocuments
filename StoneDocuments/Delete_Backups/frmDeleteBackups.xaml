@@ -59,7 +59,7 @@
 
             <!-- Title Bar -->
             <Border Grid.Row="0"
-                    Background="#F5F5DC"
+                    Background="#2B5A8E"
                     CornerRadius="8,8,0,0"
                     BorderBrush="#E5E7EB"
                     BorderThickness="0,0,0,1">
