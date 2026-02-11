@@ -41,12 +41,14 @@ namespace StoneDocuments
             if (Utils.DoesElementListContainAssemblies(curDoc, elemList) == true)
             {
                 // loop through each assemebly instance in the list
-                foreach (AssemblyInstance curAssembly in elemList)
+                foreach (Element elem in elemList)
                 {
-                    List<ElementId> curAsmId = curAssembly.GetMemberIds().ToList();
-                    elemIdList.AddRange(curAsmId);
+                    if (elem is AssemblyInstance curAssembly)
+                    {
+                        List<ElementId> curAsmId = curAssembly.GetMemberIds().ToList();
+                        elemIdList.AddRange(curAsmId);
+                    }
                 }
-                // get the element Ids of the assembly members
             }
             else
             {

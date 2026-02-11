@@ -30,7 +30,7 @@ namespace StoneDocuments.Common
             ElementMulticategoryFilter filter1 = new ElementMulticategoryFilter(builtInCats);
             finalCollector.WherePasses(filter1);
 
-            return finalCollector.ToElements() as List<Element>;
+            return finalCollector.ToElements().ToList();
         }
 
         internal static List<Element> GetElementsFromView(Document doc, View curView)
