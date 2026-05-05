@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.2.11415.280 d18.0
+VisualStudioVersion = 18.2.11415.280
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoneDocuments", "StoneDocuments\StoneDocuments.csproj", "{60E27050-3DA0-45D6-A39C-9D4501564212}"
 EndProject
@@ -10,9 +10,11 @@ Global
 		Debug R24|Any CPU = Debug R24|Any CPU
 		Debug R25|Any CPU = Debug R25|Any CPU
 		Debug R26|Any CPU = Debug R26|Any CPU
+		Debug R27|Any CPU = Debug R27|Any CPU
 		Release R24|Any CPU = Release R24|Any CPU
 		Release R25|Any CPU = Release R25|Any CPU
 		Release R26|Any CPU = Release R26|Any CPU
+		Release R27|Any CPU = Release R27|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{60E27050-3DA0-45D6-A39C-9D4501564212}.Debug R24|Any CPU.ActiveCfg = Debug R24|Any CPU
@@ -21,12 +23,16 @@ Global
 		{60E27050-3DA0-45D6-A39C-9D4501564212}.Debug R25|Any CPU.Build.0 = Debug R25|Any CPU
 		{60E27050-3DA0-45D6-A39C-9D4501564212}.Debug R26|Any CPU.ActiveCfg = Debug R26|Any CPU
 		{60E27050-3DA0-45D6-A39C-9D4501564212}.Debug R26|Any CPU.Build.0 = Debug R26|Any CPU
+		{60E27050-3DA0-45D6-A39C-9D4501564212}.Debug R27|Any CPU.ActiveCfg = Debug R27|Any CPU
+		{60E27050-3DA0-45D6-A39C-9D4501564212}.Debug R27|Any CPU.Build.0 = Debug R27|Any CPU
 		{60E27050-3DA0-45D6-A39C-9D4501564212}.Release R24|Any CPU.ActiveCfg = Release R24|Any CPU
 		{60E27050-3DA0-45D6-A39C-9D4501564212}.Release R24|Any CPU.Build.0 = Release R24|Any CPU
 		{60E27050-3DA0-45D6-A39C-9D4501564212}.Release R25|Any CPU.ActiveCfg = Release R25|Any CPU
 		{60E27050-3DA0-45D6-A39C-9D4501564212}.Release R25|Any CPU.Build.0 = Release R25|Any CPU
 		{60E27050-3DA0-45D6-A39C-9D4501564212}.Release R26|Any CPU.ActiveCfg = Release R26|Any CPU
 		{60E27050-3DA0-45D6-A39C-9D4501564212}.Release R26|Any CPU.Build.0 = Release R26|Any CPU
+		{60E27050-3DA0-45D6-A39C-9D4501564212}.Release R27|Any CPU.ActiveCfg = Release R27|Any CPU
+		{60E27050-3DA0-45D6-A39C-9D4501564212}.Release R27|Any CPU.Build.0 = Release R27|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
