@@ -40,7 +40,7 @@ namespace StoneDocuments
 
             if (Utils.DoesElementListContainAssemblies(curDoc, elemList) == true)
             {
-                // loop through each assemebly instance in the list
+                // loop through each assembly instance in the list
                 foreach (Element elem in elemList)
                 {
                     if (elem is AssemblyInstance curAssembly)

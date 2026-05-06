@@ -5,7 +5,6 @@ namespace StoneDocuments
     [Transaction(TransactionMode.Manual)]
     public class cmdScheduleSwap : IExternalCommand
     {
-        public ViewSheet curSheet;
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             // Revit application and document variables
@@ -21,7 +20,7 @@ namespace StoneDocuments
                 return Result.Failed;
             }
 
-            curSheet = curDoc.ActiveView as ViewSheet;
+            ViewSheet curSheet = curDoc.ActiveView as ViewSheet;
 
             if (Utils.SheetHasSchedule(curDoc, curSheet) == false)
             {
