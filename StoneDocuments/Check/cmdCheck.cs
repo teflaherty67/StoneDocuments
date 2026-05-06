@@ -40,13 +40,35 @@ namespace StoneDocuments
 
             if (Utils.DoesElementListContainAssemblies(curDoc, elemList) == true)
             {
-                // loop through each assemebly instance in the list
-                foreach (Element elem in elemList)
+                // Get the Unit Type from the first assembly found in the schedule.
+                // Grouped schedules (Itemize every instance = off) may only return 1
+                // representative assembly, so we search the whole document for all
+                // assemblies sharing the same Unit Type.
+                AssemblyInstance firstAssembly = elemList.OfType<AssemblyInstance>().FirstOrDefault();
+
+                if (firstAssembly != null)
                 {
-                    if (elem is AssemblyInstance curAssembly)
+                    string unitType = Utils.GetParameterValueByName(firstAssembly, "Unit Type");
+
+                    IEnumerable<AssemblyInstance> allMatchingAssemblies;
+
+                    if (!string.IsNullOrEmpty(unitType))
                     {
-                        List<ElementId> curAsmId = curAssembly.GetMemberIds().ToList();
-                        elemIdList.AddRange(curAsmId);
+                        // Find all assembly instances in the document with the same Unit Type
+                        allMatchingAssemblies = new FilteredElementCollector(curDoc)
+                            .OfClass(typeof(AssemblyInstance))
+                            .Cast<AssemblyInstance>()
+                            .Where(a => Utils.GetParameterValueByName(a, "Unit Type") == unitType);
+                    }
+                    else
+                    {
+                        // Unit Type parameter not found - fall back to schedule results only
+                        allMatchingAssemblies = elemList.OfType<AssemblyInstance>();
+                    }
+
+                    foreach (AssemblyInstance curAssembly in allMatchingAssemblies)
+                    {
+                        elemIdList.AddRange(curAssembly.GetMemberIds());
                     }
                 }
             }
