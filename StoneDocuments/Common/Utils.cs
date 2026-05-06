@@ -267,15 +267,15 @@ namespace StoneDocuments.Common
 
         internal static List<ViewSchedule> GetSchedulesToUse(Document curDoc, List<string> schedNotUsed)
         {
+            // Build a dictionary once so we don't query all schedules on every iteration
+            Dictionary<string, ViewSchedule> schedDict = GetAllSchedules(curDoc)
+                .ToDictionary(s => s.Name, s => s);
+
             List<ViewSchedule> m_returnList = new List<ViewSchedule>();
 
             foreach (string schedName in schedNotUsed)
             {
-                string curName = schedName;
-
-                ViewSchedule curSched = GetViewScheduleByName(curDoc, curName);
-
-                if (curSched != null)
+                if (schedDict.TryGetValue(schedName, out ViewSchedule curSched))
                 {
                     m_returnList.Add(curSched);
                 }
