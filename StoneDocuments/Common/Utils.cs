@@ -75,7 +75,13 @@ namespace StoneDocuments.Common
             IList<Parameter> paramList = element.GetParameters(paramName);
 
             if (paramList != null && paramList.Count > 0)
-                return paramList[0].AsValueString();
+            {
+                Parameter param = paramList[0];
+                if (param.StorageType == StorageType.String)
+                    return param.AsString();
+                else
+                    return param.AsValueString();
+            }
 
             return "";
         }
