@@ -26,10 +26,10 @@ namespace StoneDocuments
             // get all elements in view
             List<Element> viewElements = Utils.GetElementsFromView(curDoc, curView);
 
-            if (viewElements == null)
+            if (viewElements == null || viewElements.Count == 0)
             {
-                TaskDialog.Show("Error", "No elements found. Please run Check Parts first.");
-                return Result.Failed;
+                TaskDialog.Show("Reset Parts", "No elements have overrides that need to be cleared.");
+                return Result.Succeeded;
             }
 
             // set override settings
