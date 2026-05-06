@@ -64,11 +64,13 @@ namespace StoneDocuments
                 string extension = Path.GetExtension(file);
                 if (extension == ".rvt" || extension == ".rfa" || extension == ".rte")
                 {
-                    // Get the last 9 characters of file name to check if backup
-                    if (file.Length >= 9)
+                    // Backup files follow the pattern: Name.0001.rvt
+                    // Strip the extension and check if the remainder ends with .XXXX (4 digits)
+                    string nameWithoutExt = Path.GetFileNameWithoutExtension(file);
+                    if (nameWithoutExt.Length >= 5)
                     {
-                        string checkString = file.Substring(file.Length - 9, 9);
-                        if (checkString.Contains(".0"))
+                        string possibleSuffix = nameWithoutExt.Substring(nameWithoutExt.Length - 5);
+                        if (possibleSuffix[0] == '.' && possibleSuffix.Substring(1).All(char.IsDigit))
                         {
                             // Add filename to list
                             deletedFileLog.Add(file);

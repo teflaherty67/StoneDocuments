@@ -62,6 +62,9 @@ namespace StoneDocuments
 
             if (curForm.DialogResult == true)
             {
+                int successCount = 0;
+                List<string> failedSheets = new List<string>();
+
                 using (Transaction t = new Transaction(curDoc))
                 {
                     t.Start("Create new sheets");
@@ -100,21 +103,37 @@ namespace StoneDocuments
                             {
                                 Utils.SetParameterByName(newSheet, "Group", newGroup);
                             }
+
+                            successCount++;
                         }
                         catch (Exception ex)
                         {
-                            TaskDialog tdError = new TaskDialog("Error");
-                            tdError.MainIcon = Icon.TaskDialogIconWarning;
-                            tdError.Title = "Sheet Maker";
-                            tdError.TitleAutoPrefix = false;
-                            tdError.MainContent = "An error occured: " + ex.Message;
-                            tdError.CommonButtons = TaskDialogCommonButtons.Close;
-
-                            TaskDialogResult tdErrorRes = tdError.Show();
+                            failedSheets.Add($"{curData.SheetNumber} - {curData.SheetName}: {ex.Message}");
                         }
                     }
 
                     t.Commit();
+                }
+
+                // show summary
+                string summary = $"Sheets created: {successCount}";
+
+                if (failedSheets.Count > 0)
+                {
+                    string failedList = string.Join("\n", failedSheets);
+
+                    TaskDialog tdSummary = new TaskDialog("Sheet Maker Complete");
+                    tdSummary.MainIcon = Icon.TaskDialogIconWarning;
+                    tdSummary.Title = "Sheet Maker";
+                    tdSummary.TitleAutoPrefix = false;
+                    tdSummary.MainContent = summary;
+                    tdSummary.ExpandedContent = $"Failed sheets:\n{failedList}";
+                    tdSummary.CommonButtons = TaskDialogCommonButtons.Close;
+                    tdSummary.Show();
+                }
+                else
+                {
+                    Utils.TaskDialogInformation("Sheet Maker Complete", "Sheet Maker", summary);
                 }
             }
 

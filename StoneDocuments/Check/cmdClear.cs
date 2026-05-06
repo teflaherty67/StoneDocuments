@@ -26,6 +26,12 @@ namespace StoneDocuments
             // get all elements in view
             List<Element> viewElements = Utils.GetElementsFromView(curDoc, curView);
 
+            if (viewElements == null)
+            {
+                TaskDialog.Show("Error", "No elements found. Please run Check Parts first.");
+                return Result.Failed;
+            }
+
             // set override settings
             OverrideGraphicSettings colSet = new OverrideGraphicSettings();
 

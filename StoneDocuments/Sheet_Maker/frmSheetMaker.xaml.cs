@@ -101,6 +101,18 @@ namespace StoneDocuments
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            if (cmbCategory.SelectedValue == null)
+            {
+                Utils.TaskDialogWarning("Incomplete Fields", "Sheet Maker", "Please select a Category before creating sheets.");
+                return;
+            }
+
+            if (cmbGroup.SelectedValue == null)
+            {
+                Utils.TaskDialogWarning("Incomplete Fields", "Sheet Maker", "Please select a Group before creating sheets.");
+                return;
+            }
+
             this.DialogResult = true;
             this.Close();
         }

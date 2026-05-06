@@ -15,9 +15,9 @@ namespace StoneDocuments
 
         public ObservableCollection<ViewSchedule> viewSheetSched { get; set; }
 
-        public Document curDoc;
+        private Document curDoc;
 
-        public ViewSheet curSheet;
+        private ViewSheet curSheet;
 
         internal vmScheduleSwap(UIApplication uiapp)
         {

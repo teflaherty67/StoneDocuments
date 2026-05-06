@@ -19,7 +19,6 @@ namespace StoneDocuments.Common
 
         internal static List<Element> GetElementsFromSchedule(Document doc, ViewSchedule curView)
         {
-            IList<Element> elements = new List<Element>();
             FilteredElementCollector finalCollector = new FilteredElementCollector(doc, curView.Id);
 
             List<BuiltInCategory> builtInCats = new List<BuiltInCategory>();
@@ -35,7 +34,6 @@ namespace StoneDocuments.Common
 
         internal static List<Element> GetElementsFromView(Document doc, View curView)
         {
-            IList<Element> elements = new List<Element>();
             FilteredElementCollector finalCollector = new FilteredElementCollector(doc, curView.Id);
 
             List<BuiltInCategory> builtInCats = new List<BuiltInCategory>();
@@ -45,7 +43,6 @@ namespace StoneDocuments.Common
 
             ElementMulticategoryFilter filter1 = new ElementMulticategoryFilter(builtInCats);
             finalCollector.WherePasses(filter1);
-            elements = finalCollector.ToElements();
 
             return finalCollector.ToElements() as List<Element>;
         }
@@ -77,17 +74,8 @@ namespace StoneDocuments.Common
         {
             IList<Parameter> paramList = element.GetParameters(paramName);
 
-            if (paramList != null)
-                try
-                {
-                    Parameter param = paramList[0];
-                    string paramValue = param.AsValueString();
-                    return paramValue;
-                }
-                catch (System.ArgumentOutOfRangeException)
-                {
-                    return null;
-                }
+            if (paramList != null && paramList.Count > 0)
+                return paramList[0].AsValueString();
 
             return "";
         }
@@ -332,15 +320,7 @@ namespace StoneDocuments.Common
             // get schedule from sheet
             List<ViewSchedule> schedList = Utils.GetAllSchedulesOnSheet(curDoc, curSheet);
 
-            // check if sheet has schedule
-            if (schedList.Count == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return schedList.Count > 0;
         }
 
         internal static bool DoesScheduleContainAssemblies(Document doc, ViewSchedule curView)
@@ -348,14 +328,7 @@ namespace StoneDocuments.Common
             FilteredElementCollector m_colAssembly = new FilteredElementCollector(doc, curView.Id)
                 .OfCategory(BuiltInCategory.OST_Assemblies);
 
-            if (m_colAssembly.Count() > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return m_colAssembly.Any();
         }
 
         #endregion
@@ -471,7 +444,7 @@ namespace StoneDocuments.Common
             // Create a new TaskDialog with the specified name
             TaskDialog m_Dialog = new TaskDialog(tdName);
 
-            // Set the warning icon to indicate this is a warning message
+            // Set the information icon to indicate this is an informational message
             m_Dialog.MainIcon = Icon.TaskDialogIconInformation;
 
             // Set the custom title for the dialog
@@ -501,7 +474,7 @@ namespace StoneDocuments.Common
             // Create a new TaskDialog with the specified name
             TaskDialog m_Dialog = new TaskDialog(tdName);
 
-            // Set the warning icon to indicate this is a warning message
+            // Set the error icon to indicate this is an error message
             m_Dialog.MainIcon = Icon.TaskDialogIconError;
 
             // Set the custom title for the dialog
