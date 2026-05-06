@@ -38,59 +38,21 @@ namespace StoneDocuments
             List<Element> elemList = Utils.GetElementsFromSchedule(curDoc, schedList[0]);
             List<ElementId> elemIdList = new List<ElementId>();
 
-            int assemblyCount = 0;
-
             if (Utils.DoesElementListContainAssemblies(curDoc, elemList) == true)
             {
-                // Get Unit Type and Piece Mark from the first assembly found in the schedule.
-                // Grouped schedules (Itemize every instance = off) may only return 1
-                // representative assembly, so we search the whole document for all
-                // assemblies matching both Unit Type and Piece Mark.
-                AssemblyInstance firstAssembly = elemList.OfType<AssemblyInstance>().FirstOrDefault();
-
-                if (firstAssembly != null)
+                // loop through each assembly instance in the list
+                foreach (Element elem in elemList)
                 {
-                    string unitType = Utils.GetParameterValueByName(firstAssembly, "Unit Type");
-                    string pieceMark = Utils.GetParameterValueByName(firstAssembly, "Piece Mark");
-
-                    IEnumerable<AssemblyInstance> allMatchingAssemblies;
-
-                    if (!string.IsNullOrEmpty(unitType) && !string.IsNullOrEmpty(pieceMark))
+                    if (elem is AssemblyInstance curAssembly)
                     {
-                        // Find all assemblies in the document matching both Unit Type and Piece Mark
-                        allMatchingAssemblies = new FilteredElementCollector(curDoc)
-                            .OfClass(typeof(AssemblyInstance))
-                            .Cast<AssemblyInstance>()
-                            .Where(a => Utils.GetParameterValueByName(a, "Unit Type") == unitType
-                                     && Utils.GetParameterValueByName(a, "Piece Mark") == pieceMark);
-                    }
-                    else if (!string.IsNullOrEmpty(unitType))
-                    {
-                        // Piece Mark not found - fall back to Unit Type only
-                        allMatchingAssemblies = new FilteredElementCollector(curDoc)
-                            .OfClass(typeof(AssemblyInstance))
-                            .Cast<AssemblyInstance>()
-                            .Where(a => Utils.GetParameterValueByName(a, "Unit Type") == unitType);
-                    }
-                    else
-                    {
-                        // Neither parameter found - fall back to schedule results only
-                        allMatchingAssemblies = elemList.OfType<AssemblyInstance>();
-                    }
-
-                    List<AssemblyInstance> matchedList = allMatchingAssemblies.ToList();
-                    assemblyCount = matchedList.Count;
-
-                    foreach (AssemblyInstance curAssembly in matchedList)
-                    {
-                        elemIdList.AddRange(curAssembly.GetMemberIds());
+                        List<ElementId> curAsmId = curAssembly.GetMemberIds().ToList();
+                        elemIdList.AddRange(curAsmId);
                     }
                 }
             }
             else
             {
                 elemIdList = Utils.GetElementIdsFromList(curDoc, elemList);
-                assemblyCount = elemList.Count;
             }
 
             string userName = uiapp.Application.Username;
@@ -127,7 +89,7 @@ namespace StoneDocuments
             CancelHandler cHandler = new CancelHandler();
             ExternalEvent cEvent = ExternalEvent.Create(cHandler);
 
-            frmCheck curForm = new frmCheck(exEvent, rHandler, cHandler, cEvent, assemblyCount)
+            frmCheck curForm = new frmCheck(exEvent, rHandler, cHandler, cEvent, elemList.Count)
             {
                 Width = 365,
                 Height = 150,
