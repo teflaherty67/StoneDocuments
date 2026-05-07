@@ -374,6 +374,27 @@ namespace StoneDocuments.Common
             return m_distinctList;
         }
 
+        internal static ElementId GetSheetCollectionIdByName(Document curDoc, string collectionName)
+        {
+            foreach (ViewSheet curSheet in GetAllSheets(curDoc))
+            {
+                Parameter p = curSheet.get_Parameter(BuiltInParameter.SHEET_COLLECTION);
+                if (p != null && p.AsValueString() == collectionName)
+                    return p.AsElementId();
+            }
+            return ElementId.InvalidElementId;
+        }
+
+        internal static ElementId GetOrCreateSheetCollection(Document curDoc, string collectionName)
+        {
+            ElementId existingId = GetSheetCollectionIdByName(curDoc, collectionName);
+            if (existingId != ElementId.InvalidElementId)
+                return existingId;
+
+            BrowserOrganizationCollection newCollection = BrowserOrganizationCollection.Create(curDoc, collectionName);
+            return newCollection.Id;
+        }
+
         internal static List<string> GetAllSheetGroupsByName(Document curDoc, string paramName)
         {
             List<ViewSheet> m_sheetList = GetAllSheets(curDoc);
