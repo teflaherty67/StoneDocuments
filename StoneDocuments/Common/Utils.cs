@@ -387,12 +387,7 @@ namespace StoneDocuments.Common
 
         internal static ElementId GetOrCreateSheetCollection(Document curDoc, string collectionName)
         {
-            ElementId existingId = GetSheetCollectionIdByName(curDoc, collectionName);
-            if (existingId != ElementId.InvalidElementId)
-                return existingId;
-
-            BrowserOrganizationCollection newCollection = BrowserOrganizationCollection.Create(curDoc, collectionName);
-            return newCollection.Id;
+            return GetSheetCollectionIdByName(curDoc, collectionName);
         }
 
         internal static List<string> GetAllSheetGroupsByName(Document curDoc, string paramName)
