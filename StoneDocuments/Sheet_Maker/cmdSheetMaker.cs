@@ -88,11 +88,11 @@ namespace StoneDocuments
                             }
 
                             string newCollection = curForm.GetComboBoxCollection();
-                            TaskDialog.Show("Debug", $"Collection value: '{newCollection ?? "null"}'");
                             if (newCollection != null)
                             {
-                                string result = Utils.SetParameterByName(newSheet, "Sheet Collection", newCollection);
-                                TaskDialog.Show("Debug", $"SetParameterByName result: '{result ?? "null"}'");
+                                Parameter collectionParam = newSheet.get_Parameter(BuiltInParameter.SHEET_COLLECTION);
+                                if (collectionParam != null && !collectionParam.IsReadOnly)
+                                    collectionParam.Set(newCollection);
                             }
 
                             successCount++;
