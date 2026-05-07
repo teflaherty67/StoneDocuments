@@ -90,7 +90,8 @@ namespace StoneDocuments
                             string newCollection = curForm.GetComboBoxCollection();
                             if (newCollection != null)
                             {
-                                Parameter collectionParam = Utils.GetParameterByNameAndWritable(newSheet, "Sheet Collection");
+                                Parameter collectionParam = newSheet.GetParameters("Sheet Collection")
+                                    .FirstOrDefault(p => !p.IsReadOnly && p.StorageType == StorageType.String);
                                 if (collectionParam != null)
                                     collectionParam.Set(newCollection);
                             }
