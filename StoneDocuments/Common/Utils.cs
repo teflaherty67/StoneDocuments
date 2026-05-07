@@ -88,9 +88,9 @@ namespace StoneDocuments.Common
 
         internal static string SetParameterByName(Element curElem, string paramName, string value)
         {
-            Parameter curParam = GetParameterByNameAndWritable(curElem, paramName);
+            Parameter curParam = curElem.LookupParameter(paramName);
 
-            if (curParam == null)
+            if (curParam == null || curParam.IsReadOnly)
                 return null;
 
             curParam.Set(value);
