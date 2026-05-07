@@ -27,13 +27,9 @@ namespace StoneDocuments
             // sort list by family and type
             List<clsWrapperTBlockType> sortedList = tblockTypeList.OrderBy(o => o.FamilyAndType).ToList();
 
-            // create list for category names
-            List<string> catList = Utils.GetAllSheetCategoriesByName(curDoc, "Category");
-            catList.Sort();
-
-            // create a list for group names
-            List<string> grpList = Utils.GetAllSheetGroupsByName(curDoc, "Group");
-            grpList.Sort();
+            // create list of sheet collections
+            List<string> collectionList = Utils.GetAllSheetCategoriesByName(curDoc, "Sheet Collection");
+            collectionList = collectionList.Where(x => !string.IsNullOrEmpty(x)).OrderBy(x => x).ToList();
 
             // get a list of all the schedules not already on a sheet
 
@@ -50,7 +46,7 @@ namespace StoneDocuments
             List<ViewSchedule> schedToUse = Utils.GetSchedulesToUse(curDoc, schedNotUsed);
 
             // open form
-            frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, grpList, Utils.GetViews(curDoc), schedToUse)
+            frmSheetMaker curForm = new frmSheetMaker(sortedList, collectionList, Utils.GetViews(curDoc), schedToUse)
             {
                 Width = 880,
                 Height = 450,
@@ -81,9 +77,6 @@ namespace StoneDocuments
                             newSheet.SheetNumber = curData.SheetNumber.ToUpper();
                             newSheet.Name = curData.SheetName.ToUpper();
 
-                            string newCategory = curForm.GetComboBoxCategory();
-                            string newGroup = curForm.GetComboBoxGroup();
-
                             if (curData.SelectedView != null)
                             {
                                 Viewport curVP = Viewport.Create(curDoc, newSheet.Id, curData.SelectedView.Id, new XYZ(.25, .25, 0));
@@ -94,14 +87,10 @@ namespace StoneDocuments
                                 ScheduleSheetInstance curSSI = ScheduleSheetInstance.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ(.25, .65, 0));
                             }
 
-                            if (curForm.GetComboBoxCategory() != null)
+                            string newCollection = curForm.GetComboBoxCollection();
+                            if (newCollection != null)
                             {
-                                Utils.SetParameterByName(newSheet, "Category", newCategory);
-                            }
-
-                            if (curForm.GetComboBoxGroup() != null)
-                            {
-                                Utils.SetParameterByName(newSheet, "Group", newGroup);
+                                Utils.SetParameterByName(newSheet, "Sheet Collection", newCollection);
                             }
 
                             successCount++;

@@ -24,28 +24,24 @@ namespace StoneDocuments
         ObservableCollection<clsSheetData> SheetList { get; set; }
         ObservableCollection<View> ViewData { get; set; }
         ObservableCollection<ViewSchedule> ScheduleData { get; set; }
-        ObservableCollection<string> CategoryData { get; set; }
+        ObservableCollection<string> CollectionData { get; set; }
         ObservableCollection<clsWrapperTBlockType> Types { get; set; }
-        ObservableCollection<string> GroupData { get; set; }
 
         public List<Element> elemList;
 
-        public frmSheetMaker(List<clsWrapperTBlockType> typeList, List<string> CategoryList, List<string> GroupList, List<View> ViewList, List<ViewSchedule> ScheduleList)
+        public frmSheetMaker(List<clsWrapperTBlockType> typeList, List<string> CollectionList, List<View> ViewList, List<ViewSchedule> ScheduleList)
         {
             InitializeComponent();
 
             SheetList = new ObservableCollection<clsSheetData>();
             Types = new ObservableCollection<clsWrapperTBlockType>(typeList);
-            CategoryData = new ObservableCollection<string>(CategoryList);
-            GroupData = new ObservableCollection<string>(GroupList);
+            CollectionData = new ObservableCollection<string>(CollectionList);
             ViewData = new ObservableCollection<View>(ViewList);
             ScheduleData = new ObservableCollection<ViewSchedule>(ScheduleList);
 
-
             sheetGrid.ItemsSource = SheetList;
             cmbTitleblock.ItemsSource = Types;
-            cmbCategory.ItemsSource = CategoryData;
-            cmbGroup.ItemsSource = GroupData;
+            cmbCollection.ItemsSource = CollectionData;
             cmbViews.ItemsSource = ViewData;
             cmbSchedules.ItemsSource = ScheduleData;
         }
@@ -56,14 +52,9 @@ namespace StoneDocuments
             return selectedItem.TitleblockType;
         }
 
-        internal string GetComboBoxCategory()
+        internal string GetComboBoxCollection()
         {
-            return cmbCategory.SelectedValue as string;
-        }
-
-        internal string GetComboBoxGroup()
-        {
-            return cmbGroup.SelectedValue as string;
+            return cmbCollection.SelectedValue as string;
         }
 
         public List<clsSheetData> GetSheetData()
@@ -90,14 +81,14 @@ namespace StoneDocuments
             { }
         }
 
-        private void btnAddCat_Click(object sender, RoutedEventArgs e)
+        private void btnAddCollection_Click(object sender, RoutedEventArgs e)
         {
-            CategoryData.Add(tbxAddCat.Text);
-        }
-
-        private void btnAddGrp_Click(object sender, RoutedEventArgs e)
-        {
-            GroupData.Add(tbxAddGrp.Text);
+            if (!string.IsNullOrWhiteSpace(tbxAddCollection.Text))
+            {
+                CollectionData.Add(tbxAddCollection.Text);
+                cmbCollection.SelectedValue = tbxAddCollection.Text;
+                tbxAddCollection.Clear();
+            }
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)

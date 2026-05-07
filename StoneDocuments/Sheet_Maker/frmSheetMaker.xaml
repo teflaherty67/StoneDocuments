@@ -165,65 +165,44 @@
                                 Style="{StaticResource StyledButton}"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="3" 
-                                Orientation="Horizontal" 
-                                HorizontalAlignment="Left" 
-                                VerticalAlignment="Top" 
+                    <StackPanel Grid.Row="3"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
                                 Height="60">
                         <GroupBox Header="Titleblock:" BorderThickness="0" FontSize="11">
-                            <ComboBox x:Name="cmbTitleblock" 
-                                      Height="30" 
-                                      Width="150" 
+                            <ComboBox x:Name="cmbTitleblock"
+                                      Height="30"
+                                      Width="150"
                                       FontSize="11"
-                                      SelectedItem="{Binding SelectedTitleBlock}" 
+                                      SelectedItem="{Binding SelectedTitleBlock}"
                                       ItemsSource="{Binding Types}"
                                       DisplayMemberPath="FamilyAndType"/>
                         </GroupBox>
-                        <GroupBox Header="Category:" BorderThickness="0" FontSize="11">
-                            <ComboBox x:Name="cmbCategory" 
-                                      Height="30" 
-                                      Width="150" 
-                                      FontSize="11"
-                                      ItemsSource="{Binding CategoryData}"/>
-                        </GroupBox>
-                        <GroupBox Header="Group:" BorderThickness="0" FontSize="11">
-                            <ComboBox x:Name="cmbGroup" 
-                                      Height="30" 
-                                      Width="150" 
-                                      FontSize="11"
-                                      ItemsSource="{Binding GroupData}"/>
+                        <GroupBox Header="Sheet Collection:" BorderThickness="0" FontSize="11">
+                            <ComboBox x:Name="cmbCollection"
+                                      Height="30"
+                                      Width="200"
+                                      FontSize="11"/>
                         </GroupBox>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="5" 
-                                Orientation="Horizontal" 
+                    <StackPanel Grid.Row="5"
+                                Orientation="Horizontal"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center">
-                        <TextBox x:Name="tbxAddCat" 
-                                 Width="130" 
-                                 Height="30" 
+                        <TextBox x:Name="tbxAddCollection"
+                                 Width="200"
+                                 Height="30"
                                  FontSize="11"
                                  VerticalContentAlignment="Center"
                                  Margin="5,0,0,0"/>
-                        <Button x:Name="btnAddCat" 
-                                Width="100" 
-                                Height="30" 
-                                Content="Add Category" 
-                                Margin="5,0,0,0" 
-                                Click="btnAddCat_Click"
-                                Style="{StaticResource StyledButton}"/>
-                        <TextBox x:Name="tbxAddGrp" 
-                                 Width="130" 
-                                 Height="30" 
-                                 FontSize="11"
-                                 VerticalContentAlignment="Center"
-                                 Margin="10,0,0,0"/>
-                        <Button x:Name="btnAddGrp" 
-                                Width="100" 
-                                Height="30" 
-                                Margin="5,0,0,0" 
-                                Content="Add Group" 
-                                Click="btnAddGrp_Click"
+                        <Button x:Name="btnAddCollection"
+                                Width="110"
+                                Height="30"
+                                Content="Add Collection"
+                                Margin="5,0,0,0"
+                                Click="btnAddCollection_Click"
                                 Style="{StaticResource StyledButton}"/>
                     </StackPanel>
 
