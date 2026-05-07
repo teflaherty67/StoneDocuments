@@ -90,6 +90,9 @@ namespace StoneDocuments.Common
         {
             Parameter curParam = GetParameterByNameAndWritable(curElem, paramName);
 
+            if (curParam == null)
+                return null;
+
             curParam.Set(value);
             return curParam.ToString();
         }
