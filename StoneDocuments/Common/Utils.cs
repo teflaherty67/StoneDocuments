@@ -375,6 +375,20 @@ namespace StoneDocuments.Common
         }
 
 
+        internal static ElementId GetOrCreateSheetCollection(Document curDoc, string collectionName)
+        {
+            var existing = new FilteredElementCollector(curDoc)
+                .OfClass(typeof(SheetCollection))
+                .Cast<SheetCollection>()
+                .FirstOrDefault(sc => sc.Name.Equals(collectionName, StringComparison.OrdinalIgnoreCase));
+
+            if (existing != null)
+                return existing.Id;
+
+            SheetCollection newCollection = SheetCollection.Create(curDoc, collectionName);
+            return newCollection.Id;
+        }
+
         internal static List<string> GetAllSheetGroupsByName(Document curDoc, string paramName)
         {
             List<ViewSheet> m_sheetList = GetAllSheets(curDoc);
