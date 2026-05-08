@@ -29,9 +29,8 @@ namespace StoneDocuments
             // sort list by family and type
             List<clsWrapperTBlockType> sortedList = tblockTypeList.OrderBy(o => o.FamilyAndType).ToList();
 
-            // create list of sheet collections
-            List<string> collectionList = Utils.GetAllSheetCategoriesByName(curDoc, "Sheet Collection");
-            collectionList = collectionList.Where(x => !string.IsNullOrEmpty(x)).OrderBy(x => x).ToList();
+            // create list of sheet collections from actual SheetCollection elements
+            List<string> collectionList = Utils.GetAllSheetCollectionNames(curDoc);
 
             // get a list of all the schedules not already on a sheet
 
