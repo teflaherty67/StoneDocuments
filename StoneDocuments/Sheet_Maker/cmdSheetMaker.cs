@@ -88,15 +88,11 @@ namespace StoneDocuments
                             }
 
                             string newCollection = curForm.GetComboBoxCollection();
-                            if (newCollection != null)
+                            if (!string.IsNullOrEmpty(newCollection))
                             {
-                                ElementId collectionId = Utils.GetOrCreateSheetCollection(curDoc, newCollection);
-                                if (collectionId != ElementId.InvalidElementId)
-                                {
-                                    Parameter collectionParam = newSheet.get_Parameter(BuiltInParameter.SHEET_COLLECTION);
-                                    if (collectionParam != null && !collectionParam.IsReadOnly)
-                                        collectionParam.Set(collectionId);
-                                }
+                                Parameter collectionParam = newSheet.LookupParameter("Sheet Collection");
+                                if (collectionParam != null && !collectionParam.IsReadOnly)
+                                    collectionParam.Set(newCollection);
                             }
 
                             successCount++;
