@@ -24,8 +24,6 @@ namespace StoneDocuments
                 tblockTypeList.Add(tblockWrapper);
             }
 
-            SheetCollection.
-
             // sort list by family and type
             List<clsWrapperTBlockType> sortedList = tblockTypeList.OrderBy(o => o.FamilyAndType).ToList();
 
