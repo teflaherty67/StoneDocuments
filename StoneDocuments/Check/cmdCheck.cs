@@ -71,7 +71,7 @@ namespace StoneDocuments
                 tdNullView.MainIcon = Icon.TaskDialogIconInformation;
                 tdNullView.Title = "Null View";
                 tdNullView.TitleAutoPrefix = false;
-                tdNullView.MainContent = "The default 3D view does not exist. Please create it and set the properties as required and try again.";
+                tdNullView.MainContent = "The default 3D view does not exist. Please create it and try again.";
                 tdNullView.CommonButtons = TaskDialogCommonButtons.Close;
 
                 TaskDialogResult tdNullViewRes = tdNullView.Show();
