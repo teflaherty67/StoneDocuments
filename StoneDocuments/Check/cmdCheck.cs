@@ -79,6 +79,16 @@ namespace StoneDocuments
                 return Result.Failed;
             }
 
+            if (curView.PartsVisibility != PartsVisibility.ShowPartsOnly)
+            {
+                using (Transaction t = new Transaction(curDoc))
+                {
+                    t.Start("Set Parts Visibility");
+                    curView.PartsVisibility = PartsVisibility.ShowPartsOnly;
+                    t.Commit();
+                }
+            }
+
             uidoc.ActiveView = curView;
 
             uidoc.Selection.SetElementIds(elemIdList);
