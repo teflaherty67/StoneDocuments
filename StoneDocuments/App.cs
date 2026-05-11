@@ -61,7 +61,7 @@ namespace StoneDocuments
 
             //NOTE:
             //    To create a new tool, copy lines 35 and 39 and rename the variables to "btnData3" and "myButton3".
-            //     Change the name of the tool in the arguments of line
+            //    Change the name of the tool in the arguments of line
 
             return Result.Succeeded;
         }
