@@ -76,5 +76,10 @@ namespace StoneDocuments
         {
             Close();
         }
+
+        private void btnHelp_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://lifestyle-usa-design.atlassian.net/wiki/spaces/MFS/pages/611450881/Schedule+Swap");
+        }
     }
 }
