@@ -124,7 +124,10 @@ namespace StoneDocuments.Common
             foreach (Category subCat in rpCategory.SubCategories)
                 names.Add(subCat.Name);
 
-            return names.OrderBy(n => n).ToList();
+            return names
+                .Where(n => n.IndexOf("Centerline", StringComparison.OrdinalIgnoreCase) >= 0)
+                .OrderBy(n => n)
+                .ToList();
         }
 
         internal static string GetReferencePlaneSubcategoryName(ReferencePlane refPlane)

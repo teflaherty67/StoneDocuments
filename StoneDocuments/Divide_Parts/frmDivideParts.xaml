@@ -122,7 +122,11 @@
                     <!-- Gap -->
                     <StackPanel Grid.Row="0" Margin="0,0,0,12">
                         <Label Content="Gap" FontSize="11" Padding="0,0,0,2"/>
-                        <TextBox x:Name="txtGap" Height="24" FontSize="11" Text="0" VerticalContentAlignment="Center"/>
+                        <ComboBox x:Name="cmbGap" Height="24" FontSize="11" IsEditable="True" Text="1/8&quot;">
+                            <ComboBoxItem Content="1/8&quot;"/>
+                            <ComboBoxItem Content="3/16&quot;"/>
+                            <ComboBoxItem Content="1/4&quot;"/>
+                        </ComboBox>
                     </StackPanel>
 
                     <!-- Horizontal RP Type -->

@@ -64,7 +64,7 @@ namespace StoneDocuments
                 return;
             }
 
-            viewModel.Gap = txtGap.Text;
+            viewModel.Gap = cmbGap.Text;
             viewModel.HorizontalType = cmbHorizontal.SelectedItem as string;
             viewModel.VerticalType = cmbVertical.SelectedItem as string;
 
