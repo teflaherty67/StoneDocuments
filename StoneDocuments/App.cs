@@ -26,6 +26,7 @@ namespace StoneDocuments
             // create button data instances for panel 01
             PushButtonData btnData1_1 = cmdCheck.GetButtonData();
             PushButtonData btnData1_2 = cmdClear.GetButtonData();
+            PushButtonData btnData1_3 = cmdDivideParts.GetButtonData();
 
             // create button data instances for panel 02
             PushButtonData btnData2_1 = cmdScheduleSwap.GetButtonData();
@@ -44,6 +45,7 @@ namespace StoneDocuments
             // create buttons for panel 01
             PushButton myButton1_1 = panel01.AddItem(btnData1_1) as PushButton;
             PushButton myButton1_2 = panel01.AddItem(btnData1_2) as PushButton;
+            PushButton myButton1_3 = panel01.AddItem(btnData1_3) as PushButton;
 
             // create buttons for panel 02
             PushButton myButton2_1 = panel02.AddItem(btnData2_1) as PushButton;

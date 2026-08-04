@@ -110,6 +110,64 @@ namespace StoneDocuments.Common
 
         #endregion
 
+        #region Parts
+
+        internal static List<string> GetReferencePlaneSubcategoryNames(Document doc)
+        {
+            Category rpCategory = doc.Settings.Categories.get_Item(BuiltInCategory.OST_CLines);
+
+            if (rpCategory?.SubCategories == null)
+                return new List<string>();
+
+            List<string> names = new List<string>();
+
+            foreach (Category subCat in rpCategory.SubCategories)
+                names.Add(subCat.Name);
+
+            return names.OrderBy(n => n).ToList();
+        }
+
+        internal static string GetReferencePlaneSubcategoryName(ReferencePlane refPlane)
+        {
+            Category curCategory = refPlane.Category;
+
+            return curCategory?.Name;
+        }
+
+        internal static List<ReferencePlane> GetReferencePlanesBySubcategory(Document doc, string subcategoryName)
+        {
+            return new FilteredElementCollector(doc)
+                .OfClass(typeof(ReferencePlane))
+                .Cast<ReferencePlane>()
+                .Where(rp => GetReferencePlaneSubcategoryName(rp) == subcategoryName)
+                .ToList();
+        }
+
+        internal static bool DoesReferencePlaneIntersectWall(ReferencePlane refPlane, Wall curWall)
+        {
+            const double toleranceFeet = 0.01;
+
+            BoundingBoxXYZ wallBox = curWall.get_BoundingBox(null);
+            BoundingBoxXYZ refPlaneBox = refPlane.get_BoundingBox(null);
+
+            if (wallBox == null || refPlaneBox == null)
+                return false;
+
+            XYZ min = wallBox.Min - new XYZ(toleranceFeet, toleranceFeet, toleranceFeet);
+            XYZ max = wallBox.Max + new XYZ(toleranceFeet, toleranceFeet, toleranceFeet);
+
+            return refPlaneBox.Min.X <= max.X && refPlaneBox.Max.X >= min.X
+                && refPlaneBox.Min.Y <= max.Y && refPlaneBox.Max.Y >= min.Y
+                && refPlaneBox.Min.Z <= max.Z && refPlaneBox.Max.Z >= min.Z;
+        }
+
+        internal static bool TryParseLength(Document doc, string text, out double lengthFeet)
+        {
+            return UnitFormatUtils.TryParse(doc.GetUnits(), SpecTypeId.Length, text, out lengthFeet);
+        }
+
+        #endregion
+
         #region Print Sets
 
         internal static List<ViewSheetSet> GetAndSortAllPrintSets(Document curDoc)

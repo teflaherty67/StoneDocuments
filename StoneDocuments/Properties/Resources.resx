@@ -142,6 +142,12 @@
   <data name="Clear_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Clear_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="DivideParts_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DivideParts_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DivideParts_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DivideParts_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="DecrementSheets_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DecrementSheets_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

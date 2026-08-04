@@ -69,6 +69,8 @@
 	  <None Remove="Resources\DecrementSheets_32.png" />
 	  <None Remove="Resources\DeleteBackups_16.png" />
 	  <None Remove="Resources\DeleteBackups_32.png" />
+	  <None Remove="Resources\DivideParts_16.png" />
+	  <None Remove="Resources\DivideParts_32.png" />
 	  <None Remove="Resources\IncrementSheets_16.png" />
 	  <None Remove="Resources\IncrementSheets_32.png" />
 	  <None Remove="Resources\ScheduleSwap_16.jpg" />
@@ -90,6 +92,8 @@
 	  <EmbeddedResource Include="Resources\DecrementSheets_32.png" />
 	  <EmbeddedResource Include="Resources\DeleteBackups_16.png" />
 	  <EmbeddedResource Include="Resources\DeleteBackups_32.png" />
+	  <EmbeddedResource Include="Resources\DivideParts_16.png" />
+	  <EmbeddedResource Include="Resources\DivideParts_32.png" />
 	  <EmbeddedResource Include="Resources\IncrementSheets_16.png" />
 	  <EmbeddedResource Include="Resources\IncrementSheets_32.png" />
 	  <EmbeddedResource Include="Resources\ScheduleSwap_16.jpg" />

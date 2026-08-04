@@ -143,6 +143,26 @@ namespace StoneDocuments.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DivideParts_16 {
+            get {
+                object obj = ResourceManager.GetObject("DivideParts_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DivideParts_32 {
+            get {
+                object obj = ResourceManager.GetObject("DivideParts_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] DecrementSheets_16 {
             get {
                 object obj = ResourceManager.GetObject("DecrementSheets_16", resourceCulture);
